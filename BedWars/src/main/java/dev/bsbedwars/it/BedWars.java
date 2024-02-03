@@ -85,7 +85,7 @@ public final class BedWars extends JavaPlugin {
 
 
     private void startListening() {
-        common.getJedisManager().register(channel, "defChannel", bedwarsUUID.toString());
+        common.getJedisManager().register(channel, "defChannel", bedwarsUUID);
     }
 
 

@@ -24,7 +24,7 @@ public class StartCommand extends BaseCommand {
             return true;
         }
 
-        if(!(arena.getPlayers().size() >= arena.getType().getMinPlayers())) {
+        if (arena.getPlayers().size() < arena.getType().getMinPlayers()) {
             player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cNot enough players!"));
             return true;
         }

@@ -72,7 +72,7 @@ public final class Lobby extends JavaPlugin {
 
     private void startListening() {
         JedisChannel channel = new JedisChannel();
-        common.getJedisManager().register(channel, "defChannel", lobbyUUID.toString());
+        common.getJedisManager().register(channel, "defChannel", lobbyUUID);
     }
 
 }

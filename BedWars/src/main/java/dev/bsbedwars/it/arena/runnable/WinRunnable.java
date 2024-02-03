@@ -13,12 +13,10 @@ import java.util.List;
 public class WinRunnable extends BukkitRunnable {
 
     private final Arena arena;
-    private final Team team;
     private int seconds;
 
-    public WinRunnable(Arena arena, Team team, int seconds){
+    public WinRunnable(Arena arena, int seconds){
         this.arena = arena;
-        this.team = team;
         this.seconds = seconds;
     }
 

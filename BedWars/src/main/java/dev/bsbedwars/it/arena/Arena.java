@@ -82,7 +82,7 @@ public class Arena {
         Team winningTeam = teams.stream().findFirst().orElse(null);
 
         Bukkit.getPluginManager().callEvent(new BedWarsWinEvent(this, winningTeam));
-        new WinRunnable(this, winningTeam, config.getInt("Win_time_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
+        new WinRunnable(this, config.getInt("Win_time_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
     }
 
 
