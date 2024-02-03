@@ -1,0 +1,5 @@
+# Debug Messages:
+# - All sent/received messages to servers
+debug: true
+
+LobbyBungeeCordID: "lobby" # put here the server bungee id

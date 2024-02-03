@@ -1,0 +1,8 @@
+name: Lobby
+version: '${project.version}'
+main: dev.bsbedwars.it.Lobby
+commands:
+  spawn:
+    description: Spawn Command
+  bwhelp:
+    description: Help Command

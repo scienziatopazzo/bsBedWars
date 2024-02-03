@@ -1,0 +1,10 @@
+# SetUP
+Type: SOLO
+Status: LOBBY
+BedWarsBungeeCordID: "bedwars" # put here the server bungee id
+
+# Bw Config
+Starting_time_seconds: 10
+Win_time_seconds: 5
+
+respawn_seconds: 4

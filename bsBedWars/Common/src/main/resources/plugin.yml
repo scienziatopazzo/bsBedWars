@@ -1,0 +1,3 @@
+name: Common
+version: '${project.version}'
+main: dev.bsbedwars.it.Common
