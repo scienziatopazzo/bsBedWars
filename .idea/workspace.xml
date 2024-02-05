@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362b48bd-5d9c-4ccb-bd5d-d371832428f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/AbstractGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/AbstractGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/OnClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/OnClickGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWarsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWarsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUISelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUISelector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

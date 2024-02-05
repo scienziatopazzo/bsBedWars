@@ -5,6 +5,7 @@ import dev.bsbedwars.it.bedwars.BedWars;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.commands.join.runnable.BedWarsGUIReload;
+import dev.bsbedwars.it.commands.join.utils.JoinUtils;
 import dev.bsbedwars.it.gui.AbstractGUI;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.ItemFactory;
@@ -140,26 +141,7 @@ public class BedWarsGUISelector extends AbstractGUI {
             InventoryView inventory = player.getOpenInventory();
             Type type = Type.valueOf(inventory.getTitle().replace("BedWars GUI ", "").split(" ")[0]);
 
-            List<BedWars> bedWars = Lobby.getInstance().getBedWarsManager().getBedWars();
-
-            BedWars bw = bedWars.stream()
-                    .filter(b -> b.getType() == type)
-                    .filter(b -> b.getStatus() == Status.LOBBY || b.getStatus() == Status.STARTING)
-                    .filter(b -> b.getPlayers() < b.getType().getMaxPlayers())
-                    .sorted((b1, b2) -> Integer.compare(b2.getPlayers(), b1.getPlayers()))
-                    .findFirst()
-                    .orElse(null);
-
-
-            if(bw == null) {
-                player.closeInventory();
-                player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cNo bedwars found!"));
-                return true;
-            }
-
-            player.closeInventory();
-            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&bConnecting to &c" + bw.getName() + "&b..."));
-            Lobby.getInstance().getCommon().getBungeeApi().connect(player, bw.getName());
+            JoinUtils.findBedWars(player, type);
             return true;
         }
 
@@ -174,18 +156,15 @@ public class BedWarsGUISelector extends AbstractGUI {
             return true;
         }
 
-        player.sendMessage(String.valueOf(bw.getPlayers() < bw.getType().getMaxPlayers()));
-        player.sendMessage(bw.getStatus().toString());
 
 
-        if(bw.getStatus() == Status.GAME || bw.getStatus() == Status.ENDING || !(bw.getPlayers() < bw.getType().getMaxPlayers())) {
+        if(bw.getStatus() == Status.GAME || bw.getStatus() == Status.ENDING || bw.getPlayers() >= bw.getType().getMaxPlayers())
             return true;
-        }
 
         player.closeInventory();
 
-        player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&bConnecting to &c" + bw.getName() + "&b..."));
-        Lobby.getInstance().getCommon().getBungeeApi().connect(player, bw.getName());
+        JoinUtils.connect(player, bw);
+
         return true;
     }
 

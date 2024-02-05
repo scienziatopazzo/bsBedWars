@@ -4,6 +4,7 @@ import dev.bsbedwars.it.Lobby;
 import dev.bsbedwars.it.bedwars.BedWars;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.commands.join.utils.JoinUtils;
 import dev.bsbedwars.it.gui.AbstractGUI;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.ItemFactory;
@@ -69,8 +70,8 @@ public class BedWarsGUI extends AbstractGUI {
             }
 
             player.closeInventory();
-            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&bConnecting to &c" + bw.getName() + "&b..."));
-            Lobby.getInstance().getCommon().getBungeeApi().connect(player, bw.getName());
+
+            JoinUtils.connect(player, bw);
             return true;
         }
         return true;

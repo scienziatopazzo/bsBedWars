@@ -1,6 +1,7 @@
 package dev.bsbedwars.it.gui;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -16,7 +17,8 @@ import java.util.List;
 public abstract class AbstractGUI implements Listener{
 
     @Getter
-    private static final List<AbstractGUI> guiRegistered = new ArrayList<>();
+    @Setter
+    private static List<AbstractGUI> guiRegistered = new ArrayList<>();
 
     private final Inventory inventory;
     private final String title;
