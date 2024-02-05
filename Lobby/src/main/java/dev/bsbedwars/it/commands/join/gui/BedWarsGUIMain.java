@@ -4,6 +4,7 @@ import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.gui.AbstractGUI;
 import dev.bsbedwars.it.utils.ItemFactory;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -81,6 +82,7 @@ public class BedWarsGUIMain extends AbstractGUI {
         if(!slots.containsKey(slot)) return true;
 
         new BedWarsGUI(slots.get(slot)).open(player);
+        sound(player, Sound.ORB_PICKUP);
         return true;
     }
 }

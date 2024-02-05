@@ -9,6 +9,7 @@ import dev.bsbedwars.it.gui.AbstractGUI;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.ItemFactory;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -48,6 +49,7 @@ public class BedWarsGUI extends AbstractGUI {
         Type type = Type.valueOf(player.getOpenInventory().getTitle().split(" ")[1]);
         if(slot == 14) {
             new BedWarsGUISelector(type, 1).open(player);
+            sound(player, Sound.ORB_PICKUP);
             return true;
         }
         if(slot == 12) {
@@ -66,9 +68,11 @@ public class BedWarsGUI extends AbstractGUI {
             if(bw == null) {
                 player.closeInventory();
                 player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cNo bedwars found!"));
+                sound(player, Sound.VILLAGER_NO);
                 return true;
             }
 
+            sound(player, Sound.ORB_PICKUP);
             player.closeInventory();
 
             JoinUtils.connect(player, bw);

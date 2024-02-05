@@ -130,9 +130,11 @@ public class BedWarsGUISelector extends AbstractGUI {
             Type type = Type.valueOf(inventory.getTitle().replace("BedWars GUI ", "").split(" ")[0]);
             int page = Integer.parseInt(itemStack.getItemMeta().getDisplayName().replace((slot == 18 ? "§bBack page §8(" : "§bNext page §8("), "").replace("§8)", ""));
             new BedWarsGUISelector(type, page).open(player);
+            sound(player, Sound.ORB_PICKUP);
             return true;
         }
         if(slot == 49) {
+            sound(player, Sound.ORB_PICKUP);
             player.closeInventory();
             return true;
         }
@@ -141,6 +143,7 @@ public class BedWarsGUISelector extends AbstractGUI {
             InventoryView inventory = player.getOpenInventory();
             Type type = Type.valueOf(inventory.getTitle().replace("BedWars GUI ", "").split(" ")[0]);
 
+            sound(player, Sound.ORB_PICKUP);
             JoinUtils.findBedWars(player, type);
             return true;
         }
@@ -151,6 +154,7 @@ public class BedWarsGUISelector extends AbstractGUI {
                 .orElse(null);
 
         if(bw == null) {
+            sound(player, Sound.VILLAGER_NO);
             player.closeInventory();
             player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cERROR DURING SCREACH THE BEDWARS!"));
             return true;
@@ -158,12 +162,16 @@ public class BedWarsGUISelector extends AbstractGUI {
 
 
 
-        if(bw.getStatus() == Status.GAME || bw.getStatus() == Status.ENDING || bw.getPlayers() >= bw.getType().getMaxPlayers())
+        if(bw.getStatus() == Status.GAME || bw.getStatus() == Status.ENDING || bw.getPlayers() >= bw.getType().getMaxPlayers()) {
+            sound(player, Sound.VILLAGER_NO);
             return true;
+        }
+
 
         player.closeInventory();
 
         JoinUtils.connect(player, bw);
+        sound(player, Sound.ORB_PICKUP);
 
         return true;
     }

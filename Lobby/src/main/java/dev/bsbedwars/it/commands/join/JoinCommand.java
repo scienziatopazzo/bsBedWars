@@ -8,6 +8,7 @@ import dev.bsbedwars.it.Lobby;
 import dev.bsbedwars.it.bedwars.BedWars;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.commands.join.gui.BedWarsGUI;
 import dev.bsbedwars.it.commands.join.gui.BedWarsGUIMain;
 import dev.bsbedwars.it.commands.join.gui.BedWarsGUISelector;
 import dev.bsbedwars.it.commands.join.utils.JoinUtils;
@@ -36,7 +37,7 @@ public class JoinCommand extends BaseCommand {
             return;
         }
 
-        JoinUtils.findBedWars(player, type);
+        new BedWarsGUI(type).open(player);
     }
 
 
