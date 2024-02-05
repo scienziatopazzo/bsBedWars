@@ -1,8 +1,12 @@
 package dev.bsbedwars.it;
 
 import co.aikar.commands.BukkitCommandManager;
+import dev.bsbedwars.it.bedwars.BedWars;
 import dev.bsbedwars.it.bedwars.BedWarsManager;
+import dev.bsbedwars.it.bedwars.Status;
+import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.commands.join.JoinCommand;
+import dev.bsbedwars.it.commands.join.runnable.BedWarsGUIReload;
 import dev.bsbedwars.it.commands.spawn.SpawnCommand;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.utils.ChatUtils;
@@ -13,6 +17,7 @@ import org.bukkit.Bukkit;
 import dev.bsbedwars.it.commands.help.HelpCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.Random;
 import java.util.UUID;
 
 @Getter
@@ -40,6 +45,7 @@ public final class Lobby extends JavaPlugin {
         this.lobbyUUID = configFile.getFileConfiguration().getString("LobbyBungeeCordID");
 
         this.bedWarsManager = new BedWarsManager();
+
         Bukkit.getScheduler().runTaskAsynchronously(this, this::startListening);
 
 
@@ -58,6 +64,7 @@ public final class Lobby extends JavaPlugin {
                 .log(true, "Plugin enabled in &b" + (System.currentTimeMillis() - currentTimeMillis) + "&ams");
 
 
+        new BedWarsGUIReload().runTaskTimer(this, 0L, 5L);
 
 
     }

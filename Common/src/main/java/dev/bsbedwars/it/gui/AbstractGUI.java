@@ -2,6 +2,7 @@ package dev.bsbedwars.it.gui;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -53,6 +54,10 @@ public abstract class AbstractGUI implements Listener{
         if(getInventory().getSize() == event.getClickedInventory().getSize() &&  getTitle().equalsIgnoreCase(event.getView().getTitle()))
             return true;
         return false;
+    }
+
+    public void sound(Player player, Sound sound) {
+        player.playSound(player.getLocation(), sound, 1f, 1f);
     }
 
 

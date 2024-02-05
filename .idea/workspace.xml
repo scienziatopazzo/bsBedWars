@@ -5,75 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="362b48bd-5d9c-4ccb-bd5d-d371832428f7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/dbnavigator.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/discord.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bsBedWars/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/DeathAnimation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/WinRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetTeam.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/commands/help/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/commands/start/StartCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedDestroyEventImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsJoinEventImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsKillEventImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsQuitEventImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsWinEventImp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/reg/BedDestroyEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/reg/BedWarsJoinEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/reg/BedWarsKillEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/reg/BedWarsQuitEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/event/reg/BedWarsWinEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/lobby/LobbyManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/java/dev/bsbedwars/it/team/TeamColor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/resources/component/teams.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/resources/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/resources/messages.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/BedWars/src/main/resources/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/Common.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/bedwars/PluginStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/bedwars/Status.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/bedwars/Type.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/command/BWSubCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/gui/AbstractGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/gui/OnClickGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/jedis/JedisManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/BungeeChannelApi.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/ChatUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/Cuboid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/GameFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/ItemFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/LocationUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/java/dev/bsbedwars/it/utils/Logger.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Common/src/main/resources/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/dependency-reduced-pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWars.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWarsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/commands/help/HelpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/commands/spawn/SpawnCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/java/dev/bsbedwars/it/jedis/MessageType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/resources/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/resources/other/spawn.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/Lobby/src/main/resources/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bsBedWars/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/AbstractGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/AbstractGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/OnClickGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/gui/OnClickGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWarsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/bedwars/BedWarsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,19 +39,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-1.8",
-    "last_opened_file_path": "C:/Users/feder/GitHub Project/bsBedWars",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "CodeWithMe"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;corretto-1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/feder/GitHub Project/bsBedWars&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CodeWithMe&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\BedWars\src\main\java\dev\bsbedwars\it\commands" />
@@ -121,7 +63,21 @@
       <recent name="dev.bsbedwars.it.utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Maven.bsBedWars package">
+  <component name="RunManager" selected="Application.BedWarsGUISelector">
+    <configuration name="BedWarsGUISelector" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.bsbedwars.it.commands.join.gui.BedWarsGUISelector" />
+      <module name="Lobby" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.bsbedwars.it.commands.join.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="com.soywiz.korge.intellij.UpdateResourceBeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
     <configuration name="BedWars package" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -222,6 +178,11 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BedWarsGUISelector" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

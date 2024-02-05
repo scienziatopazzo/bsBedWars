@@ -8,9 +8,12 @@ import dev.bsbedwars.it.Lobby;
 import dev.bsbedwars.it.bedwars.BedWars;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.commands.join.gui.BedWarsGUIMain;
+import dev.bsbedwars.it.commands.join.gui.BedWarsGUISelector;
 import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.entity.Player;
 
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
@@ -21,11 +24,13 @@ public class JoinCommand extends BaseCommand {
     public void onJoin(Player player, String[] args) {
 
         if(args.length == 0) {
-            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cIncorrect syntax!"));
+            new BedWarsGUIMain().open(player);
             return;
         }
 
+
         Type type = Enums.getIfPresent(Type.class, args[0].toUpperCase()).orNull();
+
 
 
         if(type == null) {
@@ -34,7 +39,7 @@ public class JoinCommand extends BaseCommand {
         }
 
 
-        Set<BedWars> bedWars = Lobby.getInstance().getBedWarsManager().getBedWars();
+        List<BedWars> bedWars = Lobby.getInstance().getBedWarsManager().getBedWars();
 
         BedWars bw = bedWars.stream()
                 .filter(b -> b.getType() == type)

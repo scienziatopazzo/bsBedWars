@@ -15,6 +15,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Getter
 public class Arena {
@@ -59,8 +60,8 @@ public class Arena {
 
     public void stop() {
         setStatus(Status.LOBBY);
-        Set<String> lobbys = BedWars.getInstance().getLobbyManager().getLobbys();
-        Collections.shuffle((List<?>) lobbys);
+        List<String> lobbys = new ArrayList<>(BedWars.getInstance().getLobbyManager().getLobbys());
+        Collections.shuffle(lobbys);
         for (Player player : players)
             BedWars.getInstance().getCommon().getBungeeApi().connect(player, lobbys.stream().findFirst().orElse(null));
         for (Player player : spectators)

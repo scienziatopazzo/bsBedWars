@@ -35,7 +35,7 @@ public class StartingRunnable extends BukkitRunnable {
         arena.setStatus(Status.STARTING);
 
 
-        if(!(arena.getPlayers().size() >= arena.getType().getMinPlayers())){
+        if (arena.getPlayers().size() < arena.getType().getMinPlayers()) {
             arena.setStatus(Status.LOBBY);
             for (Player player : arena.getPlayers()){
                 ChatUtils.sendMessage(player, arena.getMessageConfig(), "starting_cancelled", String.valueOf(second));

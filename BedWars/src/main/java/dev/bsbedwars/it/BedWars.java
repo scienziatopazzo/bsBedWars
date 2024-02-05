@@ -73,6 +73,12 @@ public final class BedWars extends JavaPlugin {
 
         Bukkit.getConsoleSender().sendMessage(ChatUtils.color(ChatUtils.prefix() + "Plugin enabled in &b" + (System.currentTimeMillis() - currentTimeMillis) + "&ams"));
 
+        // Set Gamerules
+        Bukkit.getWorld("world").setGameRuleValue("doDaylightCycle", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doWeatherCycle", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doMobSpawning", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doFireTick", "false");
+        Bukkit.getWorld("world").setGameRuleValue("mobGriefing", "false");
 
     }
 

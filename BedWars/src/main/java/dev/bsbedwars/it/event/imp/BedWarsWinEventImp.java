@@ -18,7 +18,10 @@ public class BedWarsWinEventImp implements Listener {
 
         //team.getPlayers().forEach(playerInArena -> ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win_private", team.getColor().getColorCode(), team.getColor().toString()));
 
-        arena.getPlayers().forEach(playerInArena -> ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win", team.getColor().getColorCode(), team.getColor().toString()));
+        arena.getPlayers().forEach(playerInArena -> {
+            ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win", team.getColor().getColorCode(), team.getColor().toString());
+            ChatUtils.sendTitle(playerInArena, arena.getMessageConfig(), "win_title", team.getColor().getColorCode(), team.getColor().toString());
+        });
     }
 
 }

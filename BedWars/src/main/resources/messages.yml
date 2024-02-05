@@ -99,4 +99,7 @@ win_private: "&aYou have win the game!"
 # {0} Team (Color code)
 # {1} Team (Name)
 win: "{0}{1} &bhave win the game!"
+# {0} Team (Color code)
+# {1} Team (Name)
+win_title: "{0}{1} &bWIN!"
 
