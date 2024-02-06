@@ -8,6 +8,7 @@ import com.google.common.base.Enums;
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.commands.bedwars.subcommand.SetGenerator;
+import dev.bsbedwars.it.commands.bedwars.subcommand.SetLobby;
 import dev.bsbedwars.it.commands.bedwars.subcommand.SetTeam;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.team.TeamColor;
@@ -15,7 +16,7 @@ import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandAlias("bedwars")
+@CommandAlias("bedwars|bw")
 @CommandPermission("bedwars.admin")
 public class BedWarsCommand extends BaseCommand {
 
@@ -28,6 +29,11 @@ public class BedWarsCommand extends BaseCommand {
     @Subcommand("setgenerator")
     public void setGenerator(Player player, String[] args) {
         new SetGenerator().execute((Player) player, args);
+    }
+
+    @Subcommand("setlobby")
+    public void setLobby(Player player, String[] args) {
+        new SetLobby().execute((Player) player, args);
     }
 
     /*

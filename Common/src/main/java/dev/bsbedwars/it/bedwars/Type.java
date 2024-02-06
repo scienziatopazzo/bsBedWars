@@ -10,9 +10,9 @@ import java.util.List;
 public enum Type {
 
 
-    SOLO("SOLO", 1, 2),
-    DUO("DUO", 2, 2),
-    TRIO("TRIO", 3, 3),
+    SOLO("SOLO", 1, 8),
+    DUO("DUO", 2, 8),
+    TRIO("TRIO", 3, 4),
     SQUAD("SQUAD", 4, 4);
 
     private final String name;

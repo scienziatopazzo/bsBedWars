@@ -4,7 +4,9 @@ import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.event.reg.BedWarsJoinEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
+import dev.bsbedwars.it.utils.LocationUtil;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -35,6 +37,13 @@ public class BedWarsJoinEventImp implements Listener {
             if(playerInArena != player)
                 ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "joined_msg", player.getName(), String.valueOf(arena.getPlayers().size()), String.valueOf(arena.getType().getMaxPlayers()));
 
+        if(!arena.getLobbyFile().getFileConfiguration().isSet("lobby"))
+            return;
+
+        Location location = new LocationUtil(null)
+                .deserialize(arena.getLobbyFile().getFileConfiguration().getString("lobby"));
+
+        player.teleport(location);
 
     }
 

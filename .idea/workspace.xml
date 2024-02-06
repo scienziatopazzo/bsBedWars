@@ -8,11 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetTeam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsJoinEventImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsJoinEventImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/TeamColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/TeamColor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/bedwars/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/bedwars/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/utils/LocationUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/utils/LocationUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +46,7 @@
     "ToolWindowRun.ShowToolbar": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-1.8",
-    "last_opened_file_path": "C:/Users/feder/GitHub Project/bsBedWars/Common/src/main/java/dev/bsbedwars/it",
+    "last_opened_file_path": "C:/Users/feder/Downloads/bsSpawn (2)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",

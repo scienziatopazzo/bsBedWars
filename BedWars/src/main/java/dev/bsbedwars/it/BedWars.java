@@ -91,6 +91,7 @@ public final class BedWars extends JavaPlugin {
         new GameFile("messages.yml");
         new GameFile("component/teams.yml");
         new GameFile("component/generators.yml");
+        new GameFile("component/lobby.yml");
     }
 
     public void loadCommand() {

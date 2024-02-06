@@ -34,6 +34,8 @@ public class SetGenerator extends BWSubCommand {
 
         Location location = player.getLocation();
 
+        location = location.clone().add(0, 1, 0); // to up y + 1
+
         Arena arena = BedWars.getInstance().getArena();
 
         GameFile generatorsFile = arena.getGeneratorsFile();

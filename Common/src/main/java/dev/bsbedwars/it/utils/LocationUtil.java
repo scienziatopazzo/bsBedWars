@@ -16,7 +16,7 @@ public class LocationUtil {
 
 
     public void set(FileConfiguration config, String patch) {
-        config.set(patch, location.getWorld().getName() + "," + (int) location.getX() + "," + (int) location.getY() + "," + (int) location.getZ() + "," + (int) location.getYaw() + "," + (int) location.getPitch());
+        config.set(patch, location.getWorld().getName() + "," + location.getX() + "," + location.getY() + "," + location.getZ() + "," + location.getYaw() + "," + location.getPitch());
     }
 
     public Location deserialize(String location) {
@@ -30,6 +30,15 @@ public class LocationUtil {
                 NumberConversions.toFloat(split[4]),
                 NumberConversions.toFloat(split[5])
         );
+    }
+
+
+    public Location toCenterLocation(Location original) {
+        Location copy = original.clone();
+        copy.setX(original.getBlockX() + 0.5);
+        copy.setY(original.getBlockY() + 0.5);
+        copy.setZ(original.getBlockZ() + 0.5);
+        return copy;
     }
 
 }

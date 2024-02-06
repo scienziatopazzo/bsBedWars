@@ -8,7 +8,14 @@ import lombok.RequiredArgsConstructor;
 public enum TeamColor {
 
     RED("&c"),
-    GREEN("&a");
+    BLUE("&9"),
+    GREEN("&a"),
+    YELLOW("&e"),
+    CYAN("&3"),
+    WHITE("&f"),
+    PINK("&d"),
+    GRAY("&8");
+
 
     private final String colorCode;
 

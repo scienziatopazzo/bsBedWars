@@ -52,7 +52,9 @@ public class SetTeam extends BWSubCommand {
             send(player, ChatUtils.prefix() + "&cNo generator found in area 20x20! (Iron block)");
             return;
         }
+
         generatorLocation = generatorLocation.clone().add(0, 1, 0); // to up y + 1
+        generatorLocation = new LocationUtil(null).toCenterLocation(generatorLocation);
 
         Arena arena = BedWars.getInstance().getArena();
         GameFile teamsFile = arena.getTeamsFile();

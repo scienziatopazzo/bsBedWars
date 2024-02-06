@@ -29,7 +29,7 @@ public class Generator {
         // For level
         this.level = level;
         if(type != GeneratorType.BASE) {
-            this.hologram = HologramFactory.createHologram(location.clone().add(0, 3, 0), Arrays.asList("&bSeconds left: &c", "&b" + type.toString() + " &8(" + level + ")"), UUID.randomUUID().toString());
+            this.hologram = HologramFactory.createHologram(location.clone().add(0, 1, 0), Arrays.asList("&bSeconds left: &c", "&b" + type.toString() + " &8(" + level + ")"), UUID.randomUUID().toString());
             hologram.create();
         }
     }
@@ -42,6 +42,8 @@ public class Generator {
     public void stop() {
         if(task != null)
             task.cancel();
+        if(hologram != null)
+            hologram.delete();
     }
 
 }
