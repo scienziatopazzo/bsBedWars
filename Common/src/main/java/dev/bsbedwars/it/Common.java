@@ -2,6 +2,7 @@ package dev.bsbedwars.it;
 
 
 import dev.bsbedwars.it.gui.OnClickGUI;
+import dev.bsbedwars.it.hologram.event.PlayerHitHologram;
 import dev.bsbedwars.it.jedis.JedisManager;
 import dev.bsbedwars.it.utils.BungeeChannelApi;
 import dev.bsbedwars.it.utils.Logger;
@@ -32,6 +33,7 @@ public final class Common  {
 
         this.bungeeApi = BungeeChannelApi.of(main);
 
+        Bukkit.getPluginManager().registerEvents(new PlayerHitHologram(), main);
     }
 
 }
