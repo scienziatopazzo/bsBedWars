@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="362b48bd-5d9c-4ccb-bd5d-d371832428f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/JoinCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUIMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUIMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUISelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/commands/join/gui/BedWarsGUISelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/SetTeam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/Lobby.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,28 +36,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;corretto-1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/feder/GitHub Project/bsBedWars&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CodeWithMe&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ToolWindowRun.ShowToolbar": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk": "corretto-1.8",
+    "last_opened_file_path": "C:/Users/feder/GitHub Project/bsBedWars/Common/src/main/java/dev/bsbedwars/it",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "CodeWithMe"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\feder\GitHub Project\bsBedWars\Common\src\main\java\dev\bsbedwars\it" />
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\BedWars\src\main\java\dev\bsbedwars\it\commands" />
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\BedWars\src\main\java\dev\bsbedwars\it\manager" />
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\Common\src\main\java\dev\bsbedwars\it" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="dev.bsbedwars.it.jedis" />
       <recent name="dev.bsbedwars.it.utils" />
+      <recent name="dev.bsbedwars.it.jedis" />
     </key>
   </component>
   <component name="RunManager" selected="Application.BedWarsGUISelector">

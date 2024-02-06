@@ -2,18 +2,24 @@ package dev.bsbedwars.it.arena.runnable;
 
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
+import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.generators.Generator;
+import dev.bsbedwars.it.generators.GeneratorType;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.team.TeamColor;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.GameFile;
+import dev.bsbedwars.it.utils.LocationUtil;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -61,6 +67,30 @@ public class StartingRunnable extends BukkitRunnable {
             }
             for (Player player : arena.getPlayers())
                 player.setGameMode(GameMode.SURVIVAL);
+
+            // Create generators
+            GeneratorType[] selections = {GeneratorType.DIAMOND, GeneratorType.EMERALD};
+
+            for (GeneratorType generatorType : selections) {
+                FileConfiguration config = arena.getGeneratorsFile().getFileConfiguration();
+                ConfigurationSection selection = config.getConfigurationSection(generatorType.toString());
+
+                if(selection == null)
+                    return;
+
+                for (String key : selection.getKeys(false))
+                    arena.getGenerators().add(
+                            new Generator(
+                                    new LocationUtil(null).deserialize(selection.getString(key + ".location")),
+                                    generatorType,
+                                    1
+                            )
+                    );
+            }
+
+            arena.getGenerators().forEach(Generator::start);
+
+
             arena.setStatus(Status.GAME);
             cancel();
             return;

@@ -56,15 +56,6 @@ public final class BedWars extends JavaPlugin {
         channel.updateStatus(Status.LOBBY);
         channel.updateType(Type.SOLO);
 
-        /*
-        common.getJedisManager()
-                .send("defChannel", bedwarsUUID + ";" + "PLUGINSTATUS " + ";" + "ENABLE");
-        common.getJedisManager()
-                .send("defChannel", bedwarsUUID + ";" + "STATUS" + ";" + "LOBBY");
-        common.getJedisManager()
-                .send("defChannel", bedwarsUUID + ";" + "TYPE" + ";" + "SOLO");
-         */
-
 
         loadCommand();
         loadEvent();
@@ -99,6 +90,7 @@ public final class BedWars extends JavaPlugin {
         new GameFile("config.yml");
         new GameFile("messages.yml");
         new GameFile("component/teams.yml");
+        new GameFile("component/generators.yml");
     }
 
     public void loadCommand() {

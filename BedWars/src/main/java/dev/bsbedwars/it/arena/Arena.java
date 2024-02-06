@@ -6,8 +6,10 @@ import dev.bsbedwars.it.arena.runnable.WinRunnable;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.event.reg.BedWarsWinEvent;
+import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.GameFile;
+import dev.bsbedwars.it.utils.HologramFactory;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
@@ -26,10 +28,12 @@ public class Arena {
     private final GameFile configFile;
     private final GameFile messageFile;
     private final GameFile teamsFile;
+    private final GameFile generatorsFile;
     private final FileConfiguration config;
     private final FileConfiguration messageConfig;
     private final List<Player> players;
     private final List<Player> spectators;
+    private final List<Generator> generators;
     @Setter
     private List<Team> teams;
 
@@ -39,6 +43,8 @@ public class Arena {
         this.configFile = new GameFile("config.yml");
         this.messageFile = new GameFile("messages.yml");
         this.teamsFile = new GameFile("component/teams.yml");
+        this.generatorsFile = new GameFile("component/generators.yml");
+        this.generators = new ArrayList<>();
         this.config = configFile.getFileConfiguration();
         this.messageConfig = messageFile.getFileConfiguration();
         this.type = config.getString("Type") == null ? Type.SOLO : Type.valueOf(config.getString("Type").toUpperCase());
@@ -60,12 +66,22 @@ public class Arena {
 
     public void stop() {
         setStatus(Status.LOBBY);
+        // Kick all players
         List<String> lobbys = new ArrayList<>(BedWars.getInstance().getLobbyManager().getLobbys());
         Collections.shuffle(lobbys);
         for (Player player : players)
             BedWars.getInstance().getCommon().getBungeeApi().connect(player, lobbys.stream().findFirst().orElse(null));
+        players.clear();
         for (Player player : spectators)
             BedWars.getInstance().getCommon().getBungeeApi().connect(player, lobbys.stream().findFirst().orElse(null));
+        spectators.clear();
+        // Stop generators
+        for(Team team : teams)
+            team.getGenerator().stop();
+        teams.clear();
+        for (Generator generator : generators)
+            generator.stop();
+        generators.clear();
     }
 
     public Team getTeam(Player player) {

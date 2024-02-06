@@ -67,6 +67,13 @@ public final class Lobby extends JavaPlugin {
         new BedWarsGUIReload().runTaskTimer(this, 0L, 5L);
 
 
+        // Set Gamerules
+        Bukkit.getWorld("world").setGameRuleValue("doDaylightCycle", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doWeatherCycle", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doMobSpawning", "false");
+        Bukkit.getWorld("world").setGameRuleValue("doFireTick", "false");
+        Bukkit.getWorld("world").setGameRuleValue("mobGriefing", "false");
+
     }
 
     @Override

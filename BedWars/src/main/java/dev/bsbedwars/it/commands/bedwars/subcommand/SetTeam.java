@@ -23,7 +23,7 @@ public class SetTeam extends BWSubCommand {
     @Override
     public void execute(Player player, String[] args) {
 
-        TeamColor color = Enums.getIfPresent(TeamColor.class, args[1].toUpperCase()).orNull();
+        TeamColor color = Enums.getIfPresent(TeamColor.class, args[0].toUpperCase()).orNull();
 
         if(color == null) {
             send(player, ChatUtils.prefix() + "&cInvalid color!");
@@ -35,17 +35,24 @@ public class SetTeam extends BWSubCommand {
         Cuboid cuboid = Cuboid.createCube(location, 20);
 
         Location bedLocation = null;
+        Location generatorLocation = null;
 
         for (Block block : cuboid.getAllBlocks()) {
-            if(block.getType() == Material.BED_BLOCK) {
+            if(block.getType() == Material.BED_BLOCK)
                 bedLocation = block.getLocation();
-            }
+            if(block.getType() == Material.IRON_BLOCK)
+                generatorLocation = block.getLocation();
         }
 
         if(bedLocation == null) {
             send(player, ChatUtils.prefix() + "&cNo bed found in area 20x20!");
             return;
         }
+        if(generatorLocation == null) {
+            send(player, ChatUtils.prefix() + "&cNo generator found in area 20x20! (Iron block)");
+            return;
+        }
+        generatorLocation = generatorLocation.clone().add(0, 1, 0); // to up y + 1
 
         Arena arena = BedWars.getInstance().getArena();
         GameFile teamsFile = arena.getTeamsFile();
@@ -55,9 +62,11 @@ public class SetTeam extends BWSubCommand {
                 .set(config, color.toString() + ".spawn");
         new LocationUtil(bedLocation)
                 .set(config, color.toString() + ".bed");
+        new LocationUtil(generatorLocation)
+                .set(config, color.toString() + ".generator");
         teamsFile.save();
 
-        send(player, ChatUtils.prefix() + "&aTeam set!");
+        send(player, ChatUtils.prefix() + "&aTeam set! &8(" + color.toString() + ")");
 
     }
 }
