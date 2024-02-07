@@ -15,10 +15,13 @@ public class FlyCommand extends BaseCommand {
 
     @Default
     public void onFly(Player player) {
-        player.setFlying(!player.isFlying());
-        player.setFlySpeed(2);
-        player.setAllowFlight(!player.isFlying());
-        player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&aFly " + (player.isFlying() ? "&aenabled" : "&cdisabled") + "!"));
+        boolean activeFly = !player.isFlying();
+        player.setAllowFlight(true);
+
+        if (!activeFly)
+            player.setAllowFlight(false);
+
+        player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&aFly " + (activeFly ? "&aabilitato" : "&cdisabilitato") + "!"));
     }
 
 }

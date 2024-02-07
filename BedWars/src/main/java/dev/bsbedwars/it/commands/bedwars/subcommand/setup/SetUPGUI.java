@@ -24,8 +24,6 @@ public class SetUPGUI extends AbstractGUI {
     public SetUPGUI(Arena arena) {
         super("BedWars SETUP", 54);
 
-
-
         int[] diamondSlot = {38, 39, 47, 48};
 
         for (int i = 0; i < 4; i++) {
@@ -49,8 +47,6 @@ public class SetUPGUI extends AbstractGUI {
                     slot
             );
         }
-
-        int maxTeam = arena.getType().getMaxTeams();
 
         int[] teamsSlotsCENTER = {36, 37, 45, 46};
 

@@ -13,8 +13,6 @@ import java.util.HashMap;
 
 public class SetUPListener implements Listener {
 
-    private final HashMap<ItemStack, String> itemsUsage = new HashMap<>();
-
     @EventHandler
     public void onPlayerClick(PlayerInteractEvent event) {
         if(event.getPlayer().getItemInHand() == null) return;

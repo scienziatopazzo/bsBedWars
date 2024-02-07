@@ -6,12 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="362b48bd-5d9c-4ccb-bd5d-d371832428f7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/BedWarsCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/help/HelpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/help/HelpCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/start/StartCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/start/StartCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Lobby/src/main/java/dev/bsbedwars/it/jedis/JedisChannel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/setup/SetUPGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/bedwars/subcommand/setup/SetUPGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/fly/FlyCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/fly/FlyCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
