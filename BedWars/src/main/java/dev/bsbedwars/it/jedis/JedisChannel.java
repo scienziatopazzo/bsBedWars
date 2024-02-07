@@ -7,9 +7,11 @@ import dev.bsbedwars.it.Common;
 import dev.bsbedwars.it.bedwars.PluginStatus;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.commands.bedwars.subcommand.setup.SetUPGUI;
 import dev.bsbedwars.it.lobby.LobbyManager;
 import org.bukkit.Bukkit;
 
+import java.util.Set;
 import java.util.UUID;
 
 public class JedisChannel implements JedisManager.MessageListener {
@@ -74,18 +76,21 @@ public class JedisChannel implements JedisManager.MessageListener {
     }
 
     public void updateStatus(Status status) {
-        Common.getInstance().getJedisManager()
-                .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "STATUS" + ";" + status.toString());
+        if(SetUPGUI.on)
+            Common.getInstance().getJedisManager()
+                    .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "STATUS" + ";" + status.toString());
     }
 
     public void updateType(Type type) {
-        Common.getInstance().getJedisManager()
-                .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "TYPE" + ";" + type.toString());
+        if(SetUPGUI.on)
+            Common.getInstance().getJedisManager()
+                    .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "TYPE" + ";" + type.toString());
     }
 
     public void updatePluginStatus(PluginStatus pluginStatus) {
-        Common.getInstance().getJedisManager()
-                .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "PLUGINSTATUS" + ";" + pluginStatus.toString());
+        if(SetUPGUI.on)
+            Common.getInstance().getJedisManager()
+                    .send("defChannel", BedWars.getInstance().getBedwarsUUID() + ";" + "PLUGINSTATUS" + ";" + pluginStatus.toString());
     }
 
 

@@ -9,7 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("bwhelp|bwh")
-@CommandPermission("bwhelp.admin")
+@CommandPermission("bedwars.admin")
 public class HelpCommand extends BaseCommand {
 
 

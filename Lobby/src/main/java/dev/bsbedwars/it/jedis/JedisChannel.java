@@ -53,18 +53,16 @@ public class JedisChannel implements JedisManager.MessageListener {
                 .findFirst()
                 .orElse(null);
 
+        if(bedWars == null)
+            return;
 
         Logger logger = Lobby.getInstance().getCommon().getLogger();
 
         switch (messageType) {
             case STATUS:
-                if(bedWars == null)
-                    throw new NotFoundException("Invalid jedis message sended: " + split[1] + "! (3)");
                 bedWars.setStatus((Status) enumInizialized);
                 break;
             case TYPE:
-                if(bedWars == null)
-                    throw new NotFoundException("Invalid jedis message sended: " + split[1] + "! (3)");
                 bedWars.setType((Type) enumInizialized);
                 break;
             case PLUGINSTATUS:
@@ -77,7 +75,7 @@ public class JedisChannel implements JedisManager.MessageListener {
                 }
                 break;
             default:
-                throw new NotFoundException("Invalid jedis message sended: " + split[1] + "! (4)");
+                throw new NotFoundException("Invalid jedis message sended: " + split[1] + "! (3)");
         }
 
         switch (messageType) {

@@ -6,8 +6,17 @@ import dev.bsbedwars.it.bedwars.PluginStatus;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.commands.bedwars.BedWarsCommand;
+import dev.bsbedwars.it.commands.bedwars.subcommand.setup.SetUPListener;
+import dev.bsbedwars.it.commands.fake.FakeOFFCommand;
+import dev.bsbedwars.it.commands.fake.RedoONCommand;
+import dev.bsbedwars.it.commands.fly.FlyCommand;
+import dev.bsbedwars.it.commands.gamemode.GMC;
+import dev.bsbedwars.it.commands.gamemode.GMS;
+import dev.bsbedwars.it.commands.gamemode.GMSP;
 import dev.bsbedwars.it.commands.help.HelpCommand;
+import dev.bsbedwars.it.commands.leave.LeaveCommand;
 import dev.bsbedwars.it.commands.start.StartCommand;
+import dev.bsbedwars.it.commands.stop.StopCommand;
 import dev.bsbedwars.it.event.imp.*;
 import dev.bsbedwars.it.event.reg.BedDestroyEvent;
 import dev.bsbedwars.it.event.reg.BedWarsJoinEvent;
@@ -21,10 +30,6 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.UUID;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Getter
 public final class BedWars extends JavaPlugin {
@@ -99,6 +104,14 @@ public final class BedWars extends JavaPlugin {
         commandManager.registerCommand(new HelpCommand());
         commandManager.registerCommand(new BedWarsCommand());
         commandManager.registerCommand(new StartCommand());
+        commandManager.registerCommand(new StopCommand());
+        commandManager.registerCommand(new FakeOFFCommand());
+        commandManager.registerCommand(new RedoONCommand());
+        commandManager.registerCommand(new GMC());
+        commandManager.registerCommand(new GMS());
+        commandManager.registerCommand(new GMSP());
+        commandManager.registerCommand(new FlyCommand());
+        commandManager.registerCommand(new LeaveCommand());
     }
 
     public void loadEvent() {
@@ -113,6 +126,7 @@ public final class BedWars extends JavaPlugin {
         pluginManager.registerEvents(new BedWarsWinEventImp(), this);
         pluginManager.registerEvents(new BedWarsQuitEvent(), this);
         pluginManager.registerEvents(new BedWarsQuitEventImp(), this);
+        pluginManager.registerEvents(new SetUPListener(), this);
     }
 
 
