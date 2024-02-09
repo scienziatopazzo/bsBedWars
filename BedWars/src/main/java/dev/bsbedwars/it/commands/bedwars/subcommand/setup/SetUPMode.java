@@ -1,15 +1,9 @@
 package dev.bsbedwars.it.commands.bedwars.subcommand.setup;
 
-import dev.bsbedwars.it.BedWars;
-import dev.bsbedwars.it.arena.Arena;
-import dev.bsbedwars.it.bedwars.Type;
-import dev.bsbedwars.it.team.TeamColor;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.ItemFactory;
-import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;

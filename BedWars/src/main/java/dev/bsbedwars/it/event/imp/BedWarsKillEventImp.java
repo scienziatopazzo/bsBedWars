@@ -9,11 +9,13 @@ import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BedWarsKillEventImp implements Listener {
 
@@ -44,8 +46,18 @@ public class BedWarsKillEventImp implements Listener {
                 arena.getTeams().remove(teamVictim);
         }
 
+        e.getEvent().setKeepInventory(true);
+        e.getEvent().setDroppedExp(0);
 
-
+        e.getPlayer().getInventory().addItem(e.getEvent().getDrops().stream()
+                .filter(itemStack -> !itemStack.getType().toString().contains("SWORD"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("PICKAXE"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("AXE"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("HELMET"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("CHESTPLATE"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("LEGGINGS"))
+                .filter(itemStack -> !itemStack.getType().toString().contains("BOOTS"))
+                .toArray(ItemStack[]::new));
 
         new DeathAnimation(e.getArena(), victim, teamVictim, finalKill, arena.getConfig().getInt("respawn_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
 

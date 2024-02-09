@@ -25,14 +25,16 @@ public class BedWarsKillEvent extends Event implements Listener {
     private Player victim;
     private Team teamVictim;
     private boolean finalKill;
+    private PlayerDeathEvent event;
 
-    public BedWarsKillEvent(Arena arena, Player player, Team team, Player victim, Team teamVictim, boolean finalKill) {
+    public BedWarsKillEvent(Arena arena, Player player, Team team, Player victim, Team teamVictim, boolean finalKill, PlayerDeathEvent event) {
         this.arena = arena;
         this.player = player;
         this.team = team;
         this.victim = victim;
         this.teamVictim = teamVictim;
         this.finalKill = finalKill;
+        this.event = event;
     }
 
     public BedWarsKillEvent() {}
@@ -71,9 +73,9 @@ public class BedWarsKillEvent extends Event implements Listener {
 
         boolean finalKill = !teamVictim.isBedAlive();
 
-        Bukkit.getPluginManager().callEvent(new BedWarsKillEvent(arena, player, team, victim, teamVictim, finalKill));
+        e.setDeathMessage("");
 
-
+        Bukkit.getPluginManager().callEvent(new BedWarsKillEvent(arena, player, team, victim, teamVictim, finalKill, e));
 
     }
 

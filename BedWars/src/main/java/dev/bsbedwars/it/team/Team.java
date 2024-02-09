@@ -1,21 +1,18 @@
 package dev.bsbedwars.it.team;
 
 import dev.bsbedwars.it.arena.Arena;
-import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.generators.GeneratorType;
+import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.team.component.TeamUpgrade;
 import dev.bsbedwars.it.utils.Cuboid;
 import dev.bsbedwars.it.utils.LocationUtil;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -55,6 +52,8 @@ public class Team {
 
     private void setUPTeamUpgrade() {
         teamUpgrade.addUpgrade("generator", 0);
+        teamUpgrade.addUpgrade("protection", 0);
+        teamUpgrade.addUpgrade("sharpness", 0);
     }
 
     public void updateGeneratorLvL(int level) {

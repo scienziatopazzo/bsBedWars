@@ -24,6 +24,8 @@ import dev.bsbedwars.it.event.reg.BedWarsKillEvent;
 import dev.bsbedwars.it.event.reg.BedWarsQuitEvent;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.lobby.LobbyManager;
+import dev.bsbedwars.it.team.component.armor.Armor;
+import dev.bsbedwars.it.team.component.armor.DropSwordEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.GameFile;
 import lombok.Getter;
@@ -75,6 +77,7 @@ public final class BedWars extends JavaPlugin {
         Bukkit.getWorld("world").setGameRuleValue("doMobSpawning", "false");
         Bukkit.getWorld("world").setGameRuleValue("doFireTick", "false");
         Bukkit.getWorld("world").setGameRuleValue("mobGriefing", "false");
+        Bukkit.getWorld("world").setGameRuleValue("keepInventory", "true");
 
     }
 
@@ -127,6 +130,7 @@ public final class BedWars extends JavaPlugin {
         pluginManager.registerEvents(new BedWarsQuitEvent(), this);
         pluginManager.registerEvents(new BedWarsQuitEventImp(), this);
         pluginManager.registerEvents(new SetUPListener(), this);
+        pluginManager.registerEvents(new DropSwordEvent(), this);
     }
 
 

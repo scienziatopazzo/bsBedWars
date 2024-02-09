@@ -171,12 +171,16 @@ public class ItemFactory {
         return this;
     }
 
-    public ItemFactory setLeatherColor(int red, int green, int blue) {
+    public ItemFactory setLeatherColor(Color color) {
         LeatherArmorMeta im = (LeatherArmorMeta) meta;
-        im.setColor(Color.fromRGB(red, green, blue));
+        im.setColor(color);
         return this;
     }
 
+    public ItemFactory setUnbreakable(boolean unbreakable) {
+        meta.spigot().setUnbreakable(unbreakable);
+        return this;
+    }
 
     public ItemFactory setGlowing(boolean glowing) {
         if (glowing) {

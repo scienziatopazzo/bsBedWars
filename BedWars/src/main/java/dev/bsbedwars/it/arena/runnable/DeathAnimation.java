@@ -2,9 +2,9 @@ package dev.bsbedwars.it.arena.runnable;
 
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.team.Team;
+import dev.bsbedwars.it.team.component.armor.Armor;
 import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -28,10 +28,17 @@ public class DeathAnimation extends BukkitRunnable {
 
     @Override
     public void run() {
+        if(!player.isOnline()){
+            team.getPlayers().remove(player);
+            arena.getPlayers().remove(player);
+            arena.checkWin();
+            cancel();
+            return;
+        }
 
+        player.spigot().respawn();
 
         if(finalKill) {
-            player.spigot().respawn();
             player.setGameMode(GameMode.SPECTATOR);
             player.teleport(team.getBedLocation());
             ChatUtils.sendMessage(player, arena.getMessageConfig(), "final_kill_respawn_msg", player.getName(), team.getColor().toString(), team.getColor().getColorCode());
@@ -40,19 +47,14 @@ public class DeathAnimation extends BukkitRunnable {
         }
 
 
-        if(!player.isOnline()){
-            team.getPlayers().remove(player);
-            arena.getPlayers().remove(player);
-            //arena.checkWin();
-            cancel();
-            return;
-        }
-
 
         if(seconds < 0) {
             player.setGameMode(GameMode.SURVIVAL);
             player.teleport(team.getSpawnLocation());
             ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn", player.getName(), team.getColor().toString(), team.getColor().getColorCode());
+            player.getInventory().clear();
+            Armor.giveWoodSword(player);
+            Armor.updatePlayerArmor(player, Armor.getArmor(player));
             cancel();
             return;
         }
@@ -65,10 +67,6 @@ public class DeathAnimation extends BukkitRunnable {
         ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn_msg", player.getName(), team.getColor().toString(), team.getColor().getColorCode(), String.valueOf(seconds));
 
         seconds--;
-
-
-
-
 
     }
 }

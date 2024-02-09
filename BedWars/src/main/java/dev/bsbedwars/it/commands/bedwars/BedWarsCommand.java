@@ -4,18 +4,12 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.CommandAlias;
 import co.aikar.commands.annotation.CommandPermission;
 import co.aikar.commands.annotation.Subcommand;
-import com.google.common.base.Enums;
 import dev.bsbedwars.it.BedWars;
-import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.commands.bedwars.subcommand.SetGenerator;
 import dev.bsbedwars.it.commands.bedwars.subcommand.SetLobby;
 import dev.bsbedwars.it.commands.bedwars.subcommand.SetTeam;
 import dev.bsbedwars.it.commands.bedwars.subcommand.setup.SetUP;
-import dev.bsbedwars.it.commands.bedwars.subcommand.setup.SetUPGUI;
 import dev.bsbedwars.it.team.Team;
-import dev.bsbedwars.it.team.TeamColor;
-import dev.bsbedwars.it.utils.ChatUtils;
-import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 @CommandAlias("bedwars|bw")
@@ -42,6 +36,13 @@ public class BedWarsCommand extends BaseCommand {
     public void setUP(Player player, String[] args) {
         new SetUP().execute((Player) player, args);
     }
+
+    @Subcommand("updateTeamUpgrade")
+    public void updateTeamUpgrade(Player player, String[] args) {
+        Team team = BedWars.getInstance().getArena().getTeam(player);
+        team.getTeamUpgrade().addUpgrade(args[0], Integer.parseInt(args[1]));
+    }
+
 
     /*
      @Subcommand("updateGen")

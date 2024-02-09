@@ -5,7 +5,6 @@ import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.team.Team;
-import dev.bsbedwars.it.team.TeamColor;
 import dev.bsbedwars.it.utils.ChatUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;

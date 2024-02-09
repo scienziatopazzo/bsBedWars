@@ -1,25 +1,21 @@
 package dev.bsbedwars.it.arena.runnable;
 
+import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
-import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.generators.GeneratorType;
 import dev.bsbedwars.it.team.Team;
-import dev.bsbedwars.it.team.TeamColor;
+import dev.bsbedwars.it.team.component.armor.Armor;
+import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.utils.ChatUtils;
-import dev.bsbedwars.it.utils.GameFile;
 import dev.bsbedwars.it.utils.LocationUtil;
-import lombok.RequiredArgsConstructor;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -63,6 +59,9 @@ public class StartingRunnable extends BukkitRunnable {
                 for (Player player : team.getPlayers()) {
                     player.teleport(team.getSpawnLocation());
                     ChatUtils.sendMessage(player, arena.getMessageConfig(), "started_private_msg");
+                    player.getInventory().clear();
+                    Armor.giveWoodSword(player);
+                    Armor.updatePlayerArmor(player, Armor.LEATHER);
                 }
             }
             for (Player player : arena.getPlayers())
@@ -92,6 +91,7 @@ public class StartingRunnable extends BukkitRunnable {
 
 
             arena.setStatus(Status.GAME);
+            new UpdateTeamRunnable(arena).runTaskTimerAsynchronously(BedWars.getInstance(), 20, 20);
             cancel();
             return;
         }

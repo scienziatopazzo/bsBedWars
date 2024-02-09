@@ -3,19 +3,14 @@ package dev.bsbedwars.it.commands.bedwars.subcommand.setup;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.gui.AbstractGUI;
-import dev.bsbedwars.it.team.Team;
-import dev.bsbedwars.it.team.TeamColor;
+import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.utils.ItemFactory;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
 
 public class SetUPGUI extends AbstractGUI {
 

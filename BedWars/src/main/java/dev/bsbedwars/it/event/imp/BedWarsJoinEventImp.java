@@ -7,9 +7,11 @@ import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.LocationUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.inventory.ItemStack;
 
 public class BedWarsJoinEventImp implements Listener {
 
@@ -19,6 +21,12 @@ public class BedWarsJoinEventImp implements Listener {
 
         Player player = e.getPlayer();
         Arena arena = e.getArena();
+
+        player.getInventory().clear();
+        player.getInventory().setHelmet(new ItemStack(Material.AIR));
+        player.getInventory().setChestplate(new ItemStack(Material.AIR));
+        player.getInventory().setLeggings(new ItemStack(Material.AIR));
+        player.getInventory().setBoots(new ItemStack(Material.AIR));
 
         if(arena.getPlayers().size() + 1 > arena.getType().getMaxPlayers() && arena.getStatus() == Status.LOBBY || arena.getPlayers().size() + 1 > arena.getType().getMaxPlayers() && arena.getStatus() == Status.STARTING) {
             player.kickPlayer(ChatUtils.color("&cINTERNAL ERROR: TOO MANY PLAYERS IN THE GAME!"));
