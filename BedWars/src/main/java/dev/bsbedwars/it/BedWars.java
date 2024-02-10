@@ -15,6 +15,7 @@ import dev.bsbedwars.it.commands.gamemode.GMS;
 import dev.bsbedwars.it.commands.gamemode.GMSP;
 import dev.bsbedwars.it.commands.help.HelpCommand;
 import dev.bsbedwars.it.commands.leave.LeaveCommand;
+import dev.bsbedwars.it.commands.shop.ShopCommand;
 import dev.bsbedwars.it.commands.start.StartCommand;
 import dev.bsbedwars.it.commands.stop.StopCommand;
 import dev.bsbedwars.it.event.imp.*;
@@ -24,6 +25,7 @@ import dev.bsbedwars.it.event.reg.BedWarsKillEvent;
 import dev.bsbedwars.it.event.reg.BedWarsQuitEvent;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.lobby.LobbyManager;
+import dev.bsbedwars.it.shop.ShopProvider;
 import dev.bsbedwars.it.team.component.armor.Armor;
 import dev.bsbedwars.it.team.component.armor.DropSwordEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
@@ -44,6 +46,7 @@ public final class BedWars extends JavaPlugin {
     private String bedwarsUUID;
     private JedisChannel channel;
     private Arena arena;
+    private ShopProvider shopProvider;
 
 
 
@@ -67,6 +70,8 @@ public final class BedWars extends JavaPlugin {
         loadCommand();
         loadEvent();
 
+        this.shopProvider = new ShopProvider();
+        shopProvider.load();
         this.arena = new Arena();
 
         Bukkit.getConsoleSender().sendMessage(ChatUtils.color(ChatUtils.prefix() + "Plugin enabled in &b" + (System.currentTimeMillis() - currentTimeMillis) + "&ams"));
@@ -78,7 +83,6 @@ public final class BedWars extends JavaPlugin {
         Bukkit.getWorld("world").setGameRuleValue("doFireTick", "false");
         Bukkit.getWorld("world").setGameRuleValue("mobGriefing", "false");
         Bukkit.getWorld("world").setGameRuleValue("keepInventory", "true");
-
     }
 
     @Override
@@ -115,6 +119,7 @@ public final class BedWars extends JavaPlugin {
         commandManager.registerCommand(new GMSP());
         commandManager.registerCommand(new FlyCommand());
         commandManager.registerCommand(new LeaveCommand());
+        commandManager.registerCommand(new ShopCommand());
     }
 
     public void loadEvent() {

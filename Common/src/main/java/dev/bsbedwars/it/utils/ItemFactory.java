@@ -5,6 +5,8 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.block.BlockState;
 import org.bukkit.block.CreatureSpawner;
+import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemFlag;
@@ -203,7 +205,18 @@ public class ItemFactory {
         items.put(item, this);
         return item;
     }
-    
+
+    public static ItemFactory load(ConfigurationSection section) {
+        ItemFactory item = new ItemFactory(Material.matchMaterial(section.getString("material")));
+        if(section.contains("name"))
+            item.name(section.getString("name"));
+        if(section.contains("lore"))
+            item.setLore(section.getStringList("lore"));
+        if(section.contains("glowing"))
+            item.setGlowing(section.getBoolean("glowing"));
+        return item;
+    }
+
 
     @Override
     public ItemFactory clone() {

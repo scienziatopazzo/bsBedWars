@@ -30,6 +30,7 @@ public class Arena {
     private final GameFile teamsFile;
     private final GameFile generatorsFile;
     private final GameFile lobbyFile;
+    private final GameFile shopFile;
     private final FileConfiguration config;
     private final FileConfiguration messageConfig;
     private final List<Player> players;
@@ -46,6 +47,7 @@ public class Arena {
         this.teamsFile = new GameFile("component/teams.yml");
         this.generatorsFile = new GameFile("component/generators.yml");
         this.lobbyFile = new GameFile("component/lobby.yml");
+        this.shopFile = new GameFile("component/shop.yml");
         this.generators = new ArrayList<>();
         this.config = configFile.getFileConfiguration();
         this.messageConfig = messageFile.getFileConfiguration();

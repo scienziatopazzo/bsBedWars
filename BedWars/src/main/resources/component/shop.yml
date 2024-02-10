@@ -1,0 +1,41 @@
+# categoryName: "categoryDisplayName"
+itemLore:
+  shopItem:
+    - ""
+    - "&aClick to buy!"
+    - ""
+    - "&7Price: %color%%type% %price%"
+    - ""
+  category:
+    - ""
+    - "&aClick to see the items in this category."
+    - ""
+
+category:
+  main:
+    material: "nether_star"
+    glowing: true
+  blocks:
+    material: "wool"
+    glowing: true
+
+main:
+  1:
+    sendCategory: "blocks"
+  2:
+    shopItem: "diamond_sword"
+  3:
+    material: "stone"
+    name: "Test"
+    lore:
+      - "&aTest"
+    glowing: true
+
+blocks:
+  1:
+    material: "stone"
+    name: "Test"
+    lore:
+      - "&aTest"
+    glowing: true
+
