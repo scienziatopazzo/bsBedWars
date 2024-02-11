@@ -13,7 +13,7 @@ public class DiamondArmor extends ShopItem {
 
     public DiamondArmor() {
         super(
-                "diamond_armor",
+                "Diamond Armor",
                 new ItemFactory(Material.DIAMOND_CHESTPLATE)
                         .name("&bDiamond Armor")
                         .build(),
@@ -30,15 +30,6 @@ public class DiamondArmor extends ShopItem {
         player.getInventory().setLeggings(getItemStack());
     }
 
-    @Override
-    public void onClickEvent(Player player, ItemStack itemStack, PlayerInteractEvent event) {
-
-    }
-
-    @Override
-    public void onMoveEvent(Player player, ItemStack itemStack, PlayerMoveEvent event) {
-
-    }
 
 
 }

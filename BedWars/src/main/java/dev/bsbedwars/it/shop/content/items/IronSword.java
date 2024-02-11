@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 public class IronSword extends ShopItem {
     public IronSword() {
         super(
-                "iron_sword",
+                "Iron Sword",
                 new ItemFactory(Material.IRON_SWORD)
                         .name("&bIron Sword")
                         .build(),
@@ -27,16 +27,6 @@ public class IronSword extends ShopItem {
     @Override
     public void onClick(Player player) {
         player.getInventory().addItem(getItemStack());
-    }
-
-    @Override
-    public void onClickEvent(Player player, ItemStack itemStack, PlayerInteractEvent event) {
-
-    }
-
-    @Override
-    public void onMoveEvent(Player player, ItemStack itemStack, PlayerMoveEvent event) {
-
     }
 
 }

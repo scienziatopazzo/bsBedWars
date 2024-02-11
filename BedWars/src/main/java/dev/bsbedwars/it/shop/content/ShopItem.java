@@ -42,9 +42,5 @@ public abstract class ShopItem {
 
     public abstract void onClick(Player player);
 
-    // Events
-    public abstract void onClickEvent(Player player, ItemStack itemStack, PlayerInteractEvent event);
-    public abstract void onMoveEvent(Player player, ItemStack itemStack, PlayerMoveEvent event);
-
 
 }

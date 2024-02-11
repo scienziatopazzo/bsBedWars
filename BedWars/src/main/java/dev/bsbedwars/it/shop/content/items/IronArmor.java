@@ -13,7 +13,7 @@ public class IronArmor extends ShopItem {
 
     public IronArmor() {
         super(
-                "iron_armor",
+                "Iron Armor",
                 new ItemFactory(Material.IRON_CHESTPLATE)
                         .name("&bIron Armor")
                         .build(),
@@ -28,15 +28,6 @@ public class IronArmor extends ShopItem {
     @Override
     public void onClick(Player player) {
         player.getInventory().setLeggings(getItemStack());
-    }
-
-    @Override
-    public void onClickEvent(Player player, ItemStack itemStack, PlayerInteractEvent event) {
-
-    }
-
-    @Override
-    public void onMoveEvent(Player player, ItemStack itemStack, PlayerMoveEvent event) {
     }
 
 }

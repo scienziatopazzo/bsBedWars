@@ -56,6 +56,38 @@ public class ShopProvider {
         HashMap<Integer, String> shopCategory = new HashMap<>();
 
         for (String slot : items.getKeys(false)) {
+            if(slot.contains("-")) {
+                String[] slots = slot.split("-");
+                for (int i = Integer.parseInt(slots[0]); i < Integer.parseInt(slots[1]) + 1; i++) {
+                    ConfigurationSection itemSelection = items.getConfigurationSection(slot);
+                    if(itemSelection.contains("sendCategory")) {
+                        shopCategory.put(i, itemSelection.getString("sendCategory"));
+                        continue;
+                    }
+                    if(itemSelection.contains("shopItem")) {
+                        shopItems.put(i, getShopItem(itemSelection.getString("shopItem")));
+                        continue;
+                    }
+                    shopContent.put(i, ItemFactory.load(itemSelection).build());
+                }
+                continue;
+            }
+            if(slot.contains(",")) {
+                String[] slots = slot.split(",");
+                for(String s : slots) {
+                    ConfigurationSection itemSelection = items.getConfigurationSection(slot);
+                    if(itemSelection.contains("sendCategory")) {
+                        shopCategory.put(Integer.parseInt(s), itemSelection.getString("sendCategory"));
+                        continue;
+                    }
+                    if(itemSelection.contains("shopItem")) {
+                        shopItems.put(Integer.parseInt(s), getShopItem(itemSelection.getString("shopItem")));
+                        continue;
+                    }
+                    shopContent.put(Integer.parseInt(s), ItemFactory.load(itemSelection).build());
+                }
+                continue;
+            }
             ConfigurationSection itemSelection = items.getConfigurationSection(slot);
             if(itemSelection.contains("sendCategory")) {
                 shopCategory.put(Integer.parseInt(slot), itemSelection.getString("sendCategory"));
@@ -66,6 +98,7 @@ public class ShopProvider {
                 continue;
             }
             shopContent.put(Integer.parseInt(slot), ItemFactory.load(itemSelection).build());
+
         }
         categoryList.add(
                 new ShopCategory(

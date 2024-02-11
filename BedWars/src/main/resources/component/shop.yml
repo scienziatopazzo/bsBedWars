@@ -23,8 +23,14 @@ main:
   1:
     sendCategory: "blocks"
   2:
-    shopItem: "diamond_sword"
-  3:
+    shopItem: "Diamond Sword"
+  3-6:
+    material: "stone"
+    name: "Test"
+    lore:
+      - "&aTest"
+    glowing: true
+  8,9:
     material: "stone"
     name: "Test"
     lore:
