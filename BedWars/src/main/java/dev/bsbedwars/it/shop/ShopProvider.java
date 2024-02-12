@@ -1,12 +1,11 @@
 package dev.bsbedwars.it.shop;
 
-import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.shop.content.ShopCategory;
 import dev.bsbedwars.it.shop.content.ShopItem;
-import dev.bsbedwars.it.shop.content.items.DiamondArmor;
-import dev.bsbedwars.it.shop.content.items.DiamondSword;
-import dev.bsbedwars.it.shop.content.items.IronArmor;
-import dev.bsbedwars.it.shop.content.items.IronSword;
+import dev.bsbedwars.it.shop.content.items.armor.DiamondArmor;
+import dev.bsbedwars.it.shop.content.items.sword.DiamondSword;
+import dev.bsbedwars.it.shop.content.items.armor.IronArmor;
+import dev.bsbedwars.it.shop.content.items.sword.IronSword;
 import dev.bsbedwars.it.utils.GameFile;
 import dev.bsbedwars.it.utils.ItemFactory;
 import lombok.Getter;

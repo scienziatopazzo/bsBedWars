@@ -92,6 +92,7 @@ public class StartingRunnable extends BukkitRunnable {
 
             arena.setStatus(Status.GAME);
             new UpdateTeamRunnable(arena).runTaskTimerAsynchronously(BedWars.getInstance(), 20, 20);
+            arena.getBlockPlaced().clear();
             cancel();
             return;
         }

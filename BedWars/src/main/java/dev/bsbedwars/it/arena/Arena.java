@@ -13,6 +13,7 @@ import dev.bsbedwars.it.utils.HologramFactory;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -33,6 +34,7 @@ public class Arena {
     private final GameFile shopFile;
     private final FileConfiguration config;
     private final FileConfiguration messageConfig;
+    private final List<Block> blockPlaced = new ArrayList<>();
     private final List<Player> players;
     private final List<Player> spectators;
     private final List<Generator> generators;
@@ -69,6 +71,8 @@ public class Arena {
     }
 
     public void stop() {
+        if(status == Status.STARTING || status == Status.LOBBY)
+            return;
         setStatus(Status.LOBBY);
         // Kick all players
         List<String> lobbys = new ArrayList<>(BedWars.getInstance().getLobbyManager().getLobbys());

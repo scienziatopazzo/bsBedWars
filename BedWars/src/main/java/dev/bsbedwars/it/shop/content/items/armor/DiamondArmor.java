@@ -1,4 +1,4 @@
-package dev.bsbedwars.it.shop.content.items;
+package dev.bsbedwars.it.shop.content.items.armor;
 
 import dev.bsbedwars.it.shop.content.ShopItem;
 import dev.bsbedwars.it.shop.content.ShopPrice;
@@ -9,19 +9,19 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class IronArmor extends ShopItem {
+public class DiamondArmor extends ShopItem {
 
-    public IronArmor() {
+    public DiamondArmor() {
         super(
-                "Iron Armor",
-                new ItemFactory(Material.IRON_CHESTPLATE)
-                        .name("&bIron Armor")
+                "Diamond Armor",
+                new ItemFactory(Material.DIAMOND_CHESTPLATE)
+                        .name("&bDiamond Armor")
                         .build(),
-                new ItemFactory(Material.IRON_LEGGINGS)
-                        .name("")
+                new ItemFactory(Material.DIAMOND_LEGGINGS)
+                        .name("&bDiamond Armor")
                         .build(),
                 ShopPrice.GOLD,
-                7
+                12
         );
     }
 
@@ -29,5 +29,7 @@ public class IronArmor extends ShopItem {
     public void onClick(Player player) {
         player.getInventory().setLeggings(getItemStack());
     }
+
+
 
 }

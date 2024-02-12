@@ -19,10 +19,9 @@ import dev.bsbedwars.it.commands.shop.ShopCommand;
 import dev.bsbedwars.it.commands.start.StartCommand;
 import dev.bsbedwars.it.commands.stop.StopCommand;
 import dev.bsbedwars.it.event.imp.*;
-import dev.bsbedwars.it.event.reg.BedDestroyEvent;
-import dev.bsbedwars.it.event.reg.BedWarsJoinEvent;
-import dev.bsbedwars.it.event.reg.BedWarsKillEvent;
-import dev.bsbedwars.it.event.reg.BedWarsQuitEvent;
+import dev.bsbedwars.it.event.imp.block.BedWarsBlockBreak;
+import dev.bsbedwars.it.event.imp.block.BedWarsBlockPlace;
+import dev.bsbedwars.it.event.reg.*;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.lobby.LobbyManager;
 import dev.bsbedwars.it.shop.ShopProvider;
@@ -90,6 +89,7 @@ public final class BedWars extends JavaPlugin {
         common.getJedisManager()
                 .send("defChannel", bedwarsUUID + ";" + "PLUGINSTATUS " + ";" + "DISABLE");
         common.getJedisManager().close();
+        arena.stop();
     }
 
 
@@ -136,6 +136,9 @@ public final class BedWars extends JavaPlugin {
         pluginManager.registerEvents(new BedWarsQuitEventImp(), this);
         pluginManager.registerEvents(new SetUPListener(), this);
         pluginManager.registerEvents(new DropSwordEvent(), this);
+        pluginManager.registerEvents(new BedWarsBlockUpdate(), this);
+        pluginManager.registerEvents(new BedWarsBlockPlace(), this);
+        pluginManager.registerEvents(new BedWarsBlockBreak(), this);
     }
 
 

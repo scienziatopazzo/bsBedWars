@@ -8,17 +8,18 @@ import org.bukkit.Color;
 @Getter
 public enum TeamColor {
 
-    RED("&c", Color.RED),
-    BLUE("&9", Color.BLUE),
-    GREEN("&a", Color.GREEN),
-    YELLOW("&e", Color.YELLOW),
-    CYAN("&3", Color.AQUA),
-    WHITE("&f", Color.WHITE),
-    PINK("&d", Color.PURPLE),
-    GRAY("&8", Color.GRAY);
+    RED("&c", Color.RED, (short) 14),
+    BLUE("&9", Color.BLUE, (short) 11),
+    GREEN("&a", Color.GREEN, (short) 5),
+    YELLOW("&e", Color.YELLOW, (short) 3),
+    CYAN("&3", Color.AQUA, (short) 3),
+    WHITE("&f", Color.WHITE, (short) 0),
+    PINK("&d", Color.PURPLE, (short) 6),
+    GRAY("&8", Color.GRAY, (short) 7);
 
 
     private final String colorCode;
     private final Color color;
+    private final short woolColor;
 
 }
