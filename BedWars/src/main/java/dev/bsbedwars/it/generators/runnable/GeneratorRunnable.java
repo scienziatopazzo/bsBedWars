@@ -12,6 +12,7 @@ import org.bukkit.util.Vector;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor
 public class GeneratorRunnable extends BukkitRunnable {
@@ -39,6 +40,7 @@ public class GeneratorRunnable extends BukkitRunnable {
         secondsRemaining = (generator.getType().getSeconds() - generator.getType().getSecondsRemoveLevel() * generator.getLevel());
         if(generator.getType() != GeneratorType.BASE)
             generator.getHologram().change(1, "&bSeconds left: &c" + secondsRemaining);
+
     }
 
 
@@ -65,6 +67,7 @@ public class GeneratorRunnable extends BukkitRunnable {
                 break;
             }
         }
+
 
     }
 

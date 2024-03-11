@@ -8,3 +8,10 @@ Starting_time_seconds: 10
 Win_time_seconds: 5
 
 respawn_seconds: 4
+
+
+
+# Fireball
+Cooldown:
+  enabled: true
+  time: 20

@@ -6,11 +6,14 @@ import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.generators.GeneratorType;
 import dev.bsbedwars.it.team.Team;
+import dev.bsbedwars.it.team.component.runnable.UpdateTeamRunnable;
 import dev.bsbedwars.it.team.component.armor.Armor;
 import dev.bsbedwars.it.team.component.TeamColor;
+import dev.bsbedwars.it.team.component.sword.Sword;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.LocationUtil;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -19,6 +22,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 public class StartingRunnable extends BukkitRunnable {
@@ -33,7 +37,6 @@ public class StartingRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-
         arena.setStatus(Status.STARTING);
 
 
@@ -60,7 +63,7 @@ public class StartingRunnable extends BukkitRunnable {
                     player.teleport(team.getSpawnLocation());
                     ChatUtils.sendMessage(player, arena.getMessageConfig(), "started_private_msg");
                     player.getInventory().clear();
-                    Armor.giveWoodSword(player);
+                    Sword.giveWoodSword(player);
                     Armor.updatePlayerArmor(player, Armor.LEATHER);
                 }
             }
@@ -126,6 +129,7 @@ public class StartingRunnable extends BukkitRunnable {
                     teamColor,
                     teamPlayers
             );
+            team.getBedLocation().getBlock().setType(Material.BED_BLOCK);
             teamsMap.add(team);
         }
 

@@ -8,10 +8,32 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/BedWars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/DeathAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/DeathAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/StartingRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/arena/runnable/UpdateTeamRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/runnable/UpdateTeamRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/shop/ShopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/commands/shop/ShopCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsKillEventImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/event/imp/BedWarsKillEventImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/runnable/GeneratorRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/runnable/GeneratorRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/ShopProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/ShopProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/ShopItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/ShopItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/armor/DiamondArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/armor/DiamondArmor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/armor/IronArmor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/armor/IronArmor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/sword/DiamondSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/sword/DiamondSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/sword/IronSword.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/content/items/sword/IronSword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/guis/ShopGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/shop/guis/ShopGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/Team.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/TeamColor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/TeamColor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/component/shop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/component/shop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/armor/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/armor/Armor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/armor/DropSwordEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/team/component/sword/DropSwordEvent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/component/shop.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/shop.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/resources/messages.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/utils/ItemFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Common/src/main/java/dev/bsbedwars/it/utils/ItemFactory.java" afterDir="false" />
+    </list>
+    <list id="b4155cad-6c7c-478d-8f18-51c1472f903b" name="Changes by codec" comment="" />
+    <list id="746c9b59-1ed8-4183-af89-746221a32bb2" name="Changes by loren" comment="">
+      <change beforePath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +52,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/spigotmc/spigot-api/1.8.8-R0.1-SNAPSHOT/spigot-api-1.8.8-R0.1-20160221.082514-43-sources.jar!/org/bukkit/entity/HumanEntity.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/BedWars/src/main/java/dev/bsbedwars/it/generators/Generator.java">
+      <ranges>
+        <range start1="14" end1="14" start2="14" end2="15" changelist="362b48bd-5d9c-4ccb-bd5d-d371832428f7" />
+        <range start1="35" end1="36" start2="36" end2="36" changelist="746c9b59-1ed8-4183-af89-746221a32bb2" />
+        <range start1="38" end1="39" start2="38" end2="41" changelist="362b48bd-5d9c-4ccb-bd5d-d371832428f7" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2b5wOYQvWReNuekMSB7Ym4Cfgt0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -41,15 +78,20 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Maven.bsBedWars [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.bsBedWars [package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.bsBedWars [test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.bsBedWars [validate].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.com.intellij.ui.dsl.builder.impl.RowImpl.sdk&quot;: &quot;corretto-1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/feder/Downloads/bsSpawn (2)&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/feder/IdeaProjects/JPhobia&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -58,6 +100,9 @@
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\BedWars\src\main\java\dev\bsbedwars\it\commands" />
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\BedWars\src\main\java\dev\bsbedwars\it\manager" />
       <recent name="C:\Users\feder\IdeaProjects\bsBedWars\Common\src\main\java\dev\bsbedwars\it" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\feder\GitHub Project\bsBedWars\BedWars\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="dev.bsbedwars.it.utils" />
@@ -85,6 +130,7 @@
         <option name="myRunnerSettings" />
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="cmdOptions" />
             <option name="profiles">
               <set />
             </option>
@@ -93,9 +139,13 @@
                 <option value="package" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
             </option>
             <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$" />
@@ -110,6 +160,7 @@
         <option name="myRunnerSettings" />
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="cmdOptions" />
             <option name="profiles">
               <set />
             </option>
@@ -118,9 +169,13 @@
                 <option value="package" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
             </option>
             <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$" />
@@ -135,6 +190,7 @@
         <option name="myRunnerSettings" />
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="cmdOptions" />
             <option name="profiles">
               <set />
             </option>
@@ -143,9 +199,13 @@
                 <option value="package" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
             </option>
             <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$" />
@@ -160,6 +220,7 @@
         <option name="myRunnerSettings" />
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="cmdOptions" />
             <option name="profiles">
               <set />
             </option>
@@ -168,9 +229,13 @@
                 <option value="package" />
               </list>
             </option>
+            <option name="multimoduleDir" />
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
             </option>
             <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$" />
@@ -185,6 +250,13 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-1.8.0_402-corretto-1.8.0_402-4caba194b151-ae57be32" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -195,6 +267,17 @@
       <updated>1705518215907</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

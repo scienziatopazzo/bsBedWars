@@ -3,9 +3,20 @@ package dev.bsbedwars.it.shop;
 import dev.bsbedwars.it.shop.content.ShopCategory;
 import dev.bsbedwars.it.shop.content.ShopItem;
 import dev.bsbedwars.it.shop.content.items.armor.DiamondArmor;
+import dev.bsbedwars.it.shop.content.items.bloks.*;
+import dev.bsbedwars.it.shop.content.items.bow.arrow.Arrow;
+import dev.bsbedwars.it.shop.content.items.bow.type.Bow1;
+import dev.bsbedwars.it.shop.content.items.bow.type.Bow2;
+import dev.bsbedwars.it.shop.content.items.bow.type.Bow3;
+import dev.bsbedwars.it.shop.content.items.special.*;
 import dev.bsbedwars.it.shop.content.items.sword.DiamondSword;
 import dev.bsbedwars.it.shop.content.items.armor.IronArmor;
 import dev.bsbedwars.it.shop.content.items.sword.IronSword;
+import dev.bsbedwars.it.shop.content.items.sword.Stick;
+import dev.bsbedwars.it.shop.content.items.sword.StoneSword;
+import dev.bsbedwars.it.shop.content.items.tools.Axe;
+import dev.bsbedwars.it.shop.content.items.tools.Pickaxe;
+import dev.bsbedwars.it.shop.content.items.tools.Shears;
 import dev.bsbedwars.it.utils.GameFile;
 import dev.bsbedwars.it.utils.ItemFactory;
 import lombok.Getter;
@@ -26,7 +37,7 @@ public class ShopProvider {
     private final List<ShopItem> items;
 
     public ShopProvider() {
-        this.shopFile = new GameFile("component/shop.yml");
+        this.shopFile = new GameFile("shop.yml");
         this.config = shopFile.getFileConfiguration();
         this.categoryList = new ArrayList<>();
         this.items = new ArrayList<>();
@@ -111,10 +122,40 @@ public class ShopProvider {
     }
 
     private void regItems() {
+        // Load Armor
         new DiamondArmor();
-        new DiamondSword();
         new IronArmor();
+        // Load Sword
+        new DiamondSword();
         new IronSword();
+        new StoneSword();
+        new Stick();
+        // Load Bow
+        new Arrow();
+        new Bow1();
+        new Bow2();
+        new Bow3();
+        // Load Materials
+        new Clay();
+        new EndStone();
+        new Glass();
+        new Oak();
+        new Obsidian();
+        new Ladder();
+        new Wool();
+        // Tools
+        new Pickaxe();
+        new Axe();
+        new Shears();
+        // Specials
+        new Apple();
+        new Egg();
+        new Enderpearl();
+        new Fireball();
+        new Milk();
+        new Sponge();
+        new Tnt();
+        new Water();
     }
 
     public ShopCategory getCategory(String name) {

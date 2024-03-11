@@ -9,16 +9,17 @@ import dev.bsbedwars.it.event.reg.BedWarsWinEvent;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.GameFile;
-import dev.bsbedwars.it.utils.HologramFactory;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.*;
-import java.util.stream.Collectors;
+import java.util.concurrent.CompletableFuture;
 
 @Getter
 public class Arena {
@@ -46,10 +47,10 @@ public class Arena {
         this.uuid = BedWars.getInstance().getBedwarsUUID();
         this.configFile = new GameFile("config.yml");
         this.messageFile = new GameFile("messages.yml");
+        this.shopFile = new GameFile("shop.yml");
         this.teamsFile = new GameFile("component/teams.yml");
         this.generatorsFile = new GameFile("component/generators.yml");
         this.lobbyFile = new GameFile("component/lobby.yml");
-        this.shopFile = new GameFile("component/shop.yml");
         this.generators = new ArrayList<>();
         this.config = configFile.getFileConfiguration();
         this.messageConfig = messageFile.getFileConfiguration();
@@ -61,6 +62,7 @@ public class Arena {
 
 
     public void start() {
+
         if(status != Status.LOBBY)
             return;
 
@@ -68,6 +70,7 @@ public class Arena {
             return;
 
         new StartingRunnable(this, config.getInt("Starting_time_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
+
     }
 
     public void stop() {
@@ -90,6 +93,11 @@ public class Arena {
         for (Generator generator : generators)
             generator.stop();
         generators.clear();
+        // Replace Block
+        blockPlaced.forEach(block -> block.setType(Material.AIR));
+        blockPlaced.clear();
+        // Kill All entity
+        Bukkit.getWorld("world").getEntities().forEach(Entity::remove);
     }
 
     public Team getTeam(Player player) {

@@ -135,9 +135,22 @@ public class ItemFactory {
 
 
     public ItemFactory addEnchant(Enchantment ench, int level) {
+        if(level == 0)
+            return this;
         meta.addEnchant(ench, level, true);
         return this;
     }
+
+
+    public ItemFactory hideEnchant(boolean hide) {
+        if (hide) {
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        } else {
+            meta.removeItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        return this;
+    }
+
 
     public ItemFactory setSkull(String owner) {
         SkullMeta meta = (SkullMeta) this.meta;
@@ -207,25 +220,22 @@ public class ItemFactory {
     }
 
     public static ItemFactory load(ConfigurationSection section) {
-        ItemFactory item = new ItemFactory(Material.matchMaterial(section.getString("material")));
+        ItemFactory item;
+        if(section.contains("id")) {
+            item = new ItemFactory(new ItemStack(Material.matchMaterial(section.getString("material")), 1, (short) section.getInt("id")));
+        }else {
+             item = new ItemFactory(Material.matchMaterial(section.getString("material")));
+        }
         if(section.contains("name"))
             item.name(section.getString("name"));
         if(section.contains("lore"))
             item.setLore(section.getStringList("lore"));
         if(section.contains("glowing"))
             item.setGlowing(section.getBoolean("glowing"));
+        if(section.contains("amount"))
+            item.setAmount(section.getInt("amount"));
         return item;
     }
 
-
-    @Override
-    public ItemFactory clone() {
-        try {
-            return (ItemFactory) super.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
 }

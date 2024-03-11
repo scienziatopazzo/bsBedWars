@@ -12,6 +12,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 import java.util.Arrays;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
 
 @Getter
 public class Generator {
@@ -34,9 +35,10 @@ public class Generator {
         }
     }
 
-
     public void start() {
-        task = Bukkit.getScheduler().runTaskTimer(BedWars.getInstance(), new GeneratorRunnable(this), 0L, 20L);
+        CompletableFuture.runAsync(() -> {
+            task = Bukkit.getScheduler().runTaskTimer(BedWars.getInstance(), new GeneratorRunnable(this), 0L, 20L);
+        });
     }
 
     public void stop() {

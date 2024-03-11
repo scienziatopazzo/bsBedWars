@@ -1,8 +1,9 @@
-package dev.bsbedwars.it.arena.runnable;
+package dev.bsbedwars.it.team.component.runnable;
 
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.team.component.armor.Armor;
+import dev.bsbedwars.it.team.component.sword.Sword;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -19,8 +20,8 @@ public class UpdateTeamRunnable extends BukkitRunnable {
             return;
         }
         for (Player player : arena.getPlayers()) {
-            Armor.updateSword(player);
-            Armor.updatePlayerArmor(player, Armor.getArmor(player));
+            Sword.updateSword(player);
+            Armor.updateEnchantPlayerArmor(player);
         }
 
     }

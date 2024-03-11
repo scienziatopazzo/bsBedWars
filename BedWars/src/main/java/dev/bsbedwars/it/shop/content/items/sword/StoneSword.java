@@ -6,19 +6,19 @@ import dev.bsbedwars.it.utils.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 
-public class DiamondSword extends ShopItem {
-    public DiamondSword() {
+public class StoneSword extends ShopItem {
+    public StoneSword() {
         super(
-                "Diamond Sword",
-                ShopPrice.EMERALD,
-                4,
+                "Stone Sword",
+                ShopPrice.IRON,
+                10,
                 false
         );
     }
 
     @Override
     public ItemFactory getItemDisplayName(Player player) {
-        return new ItemFactory(Material.DIAMOND_SWORD).name("&bDiamond Sword").setUnbreakable(true);
+        return new ItemFactory(Material.STONE_SWORD).name("&bStone Sword").setUnbreakable(true);
     }
 
     @Override
@@ -28,4 +28,3 @@ public class DiamondSword extends ShopItem {
     }
 
 }
-

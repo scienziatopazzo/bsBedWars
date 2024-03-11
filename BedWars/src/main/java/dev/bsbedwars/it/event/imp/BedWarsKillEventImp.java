@@ -44,6 +44,7 @@ public class BedWarsKillEventImp implements Listener {
             arena.getPlayers().remove(victim);
             if(teamVictim.isEmpty())
                 arena.getTeams().remove(teamVictim);
+            arena.getSpectators().add(victim);
         }
 
         e.getEvent().setKeepInventory(true);

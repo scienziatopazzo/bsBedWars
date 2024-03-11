@@ -1,19 +1,17 @@
-package dev.bsbedwars.it.shop.content.items.armor;
+package dev.bsbedwars.it.shop.content.items.bow.type;
 
 import dev.bsbedwars.it.shop.content.ShopItem;
 import dev.bsbedwars.it.shop.content.ShopPrice;
 import dev.bsbedwars.it.utils.ItemFactory;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class DiamondArmor extends ShopItem {
-
-    public DiamondArmor() {
+public class Bow3 extends ShopItem {
+    public Bow3() {
         super(
-                "Diamond Armor",
+                "Bow3",
                 ShopPrice.EMERALD,
                 6,
                 false
@@ -22,15 +20,14 @@ public class DiamondArmor extends ShopItem {
 
     @Override
     public ItemFactory getItemDisplayName(Player player) {
-        return new ItemFactory(Material.DIAMOND_CHESTPLATE).name("&bDiamond Armor").setUnbreakable(true);
+        return new ItemFactory(new ItemStack(Material.BOW, 1)).addEnchant(Enchantment.ARROW_DAMAGE, 1).addEnchant(Enchantment.ARROW_KNOCKBACK, 1).hideEnchant(true).setUnbreakable(true);
     }
 
     @Override
     public boolean onClick(Player player) {
-        player.getInventory().setLeggings(new ItemFactory(Material.DIAMOND_LEGGINGS).name("").build());
+        player.getInventory().addItem(getItemDisplayName(player).hideEnchant(false).build());
         return true;
     }
 
-
-
 }
+

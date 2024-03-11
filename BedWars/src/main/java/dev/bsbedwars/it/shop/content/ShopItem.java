@@ -1,10 +1,14 @@
 package dev.bsbedwars.it.shop.content;
 
 import dev.bsbedwars.it.BedWars;
+import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.ItemFactory;
 import lombok.Getter;
+import lombok.Setter;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
@@ -14,33 +18,28 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 @Getter
-public abstract class ShopItem {
+@Setter
+public abstract class ShopItem implements Listener {
 
 
     private final String id;
-    private final ItemStack itemDisplay;
-    private final ItemStack itemStack;
-    private final ShopPrice priceType;
-    private final int price;
+    private ShopPrice priceType;
+    private int price;
+    private final boolean requireReload;
 
-    protected ShopItem(String id, ItemStack itemDisplay, ItemStack itemStack, ShopPrice priceType, int price) {
+    protected ShopItem(String id, ShopPrice priceType, int price, boolean requireReload) {
         this.id = id;
-        this.itemDisplay = ItemFactory.getItemBuilder(itemDisplay)
-                .setLore(
-                        BedWars.getInstance().getShopProvider().getConfig().getStringList("itemLore.shopItem").stream()
-                                .map(s -> s.replace("%color%", priceType.getColor()))
-                                .map(s -> s.replace("%price%", String.valueOf(price)))
-                                .map(s -> s.replace("%type%", priceType.toString()))
-                                .collect(Collectors.toList())
-                ).build();
-        this.itemStack = itemStack;
         this.priceType = priceType;
         this.price = price;
+        this.requireReload = requireReload;
         BedWars.getInstance().getShopProvider().getItems().add(this);
     }
 
 
-    public abstract void onClick(Player player);
+    public abstract ItemFactory getItemDisplayName(Player player);
+
+    public abstract boolean onClick(Player player);
+
 
 
 }

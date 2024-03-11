@@ -1,0 +1,330 @@
+############################################################
+#                          ITEMS                           #
+############################################################
+
+############################################################
+#                           ARMOR                          #
+# Diamond Armor                                            #
+# Iron Armor                                               #
+############################################################
+#                           BLOCKS                         #
+# Clay                                                     #
+# EndStone                                                 #
+# Glass                                                    #
+# Oak                                                      #
+# Obsidian                                                 #
+# Ladder                                                   #
+# Wool                                                     #
+############################################################
+#                           SWORD                          #
+# Diamond Sword                                            #
+# Iron Sword                                               #
+# Stone Sword                                              #
+# Stick                                                    #
+############################################################
+#                            TOOLS                         #
+# Axe                                                      #
+# Pickaxe                                                  #
+# Shears                                                   #
+############################################################
+#                            BOW                           #
+# Arrow                                                    #
+# Bow1                                                     #
+# Bow2                                                     #
+# Bow3                                                     #
+############################################################
+#              Main gui must named "main"                  #
+############################################################
+
+itemLore:
+  shopItem:
+    - ""
+    - "&aClick to buy!"
+    - ""
+    - "&7Price: %color%%type% %price%"
+    - ""
+  category:
+    - ""
+    - "&aClick to see the items in this category."
+    - ""
+
+category:
+  main:
+    material: "nether_star"
+    glowing: true
+  blocks:
+    material: "wool"
+  swords:
+    material: "wood_sword"
+  armors:
+    material: "iron_boots"
+  bow:
+    material: "bow"
+  tools:
+    material: "wood_pickaxe"
+  special:
+    material: "tnt"
+
+main:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  9:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Wool"
+  28:
+    shopItem: "Oak"
+  37:
+    shopItem: "EndStone"
+  20:
+    shopItem: "Stone Sword"
+  29:
+    shopItem: "Iron Sword"
+  38:
+    shopItem: "Diamond Sword"
+  21:
+    shopItem: "Stick"
+  30:
+    shopItem: "Iron Armor"
+  39:
+    shopItem: "Diamond Armor"
+  22:
+    shopItem: "Pickaxe"
+  31:
+    shopItem: "Axe"
+  40:
+    shopItem: "Shears"
+  23:
+    shopItem: "Bow1"
+  32:
+    shopItem: "Bow2"
+  41:
+    shopItem: "Arrow"
+
+
+
+
+blocks:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  10:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Wool"
+  20:
+    shopItem: "Clay"
+  21:
+    shopItem: "Glass"
+  22:
+    shopItem: "EndStone"
+  23:
+    shopItem: "Ladder"
+  24:
+    shopItem: "Oak"
+  25:
+    shopItem: "Obsidian"
+
+
+
+swords:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  11:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Stone Sword"
+  20:
+    shopItem: "Iron Sword"
+  21:
+    shopItem: "Diamond Sword"
+  22:
+    shopItem: "Stick"
+
+
+armors:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  12:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Iron Armor"
+  20:
+    shopItem: "Diamond Armor"
+
+
+
+bow:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  13:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Arrow"
+  20:
+    shopItem: "Bow1"
+  21:
+    shopItem: "Bow2"
+  22:
+    shopItem: "Bow3"
+
+
+tools:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  14:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Pickaxe"
+  20:
+    shopItem: "Axe"
+  21:
+    shopItem: "Shears"
+
+special:
+  0:
+    sendCategory: "main"
+  1:
+    sendCategory: "blocks"
+  2:
+    sendCategory: "swords"
+  3:
+    sendCategory: "armors"
+  4:
+    sendCategory: "bow"
+  5:
+    sendCategory: "tools"
+  6:
+    sendCategory: "special"
+  9-17:
+    material: "stained_glass_pane"
+    id: 7
+    name: ""
+  15:
+    material: "stained_glass_pane"
+    id: 5
+    name: ""
+  19:
+    shopItem: "Apple"
+  20:
+    shopItem: "Egg"
+  21:
+    shopItem: "Enderpearl"
+  22:
+    shopItem: "Fireball"
+  23:
+    shopItem: "Milk"
+  24:
+    shopItem: "Sponge"
+  25:
+    shopItem: "Tnt"
+  28:
+    shopItem: "Water"
+

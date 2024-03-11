@@ -25,12 +25,12 @@ import dev.bsbedwars.it.event.reg.*;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.lobby.LobbyManager;
 import dev.bsbedwars.it.shop.ShopProvider;
-import dev.bsbedwars.it.team.component.armor.Armor;
-import dev.bsbedwars.it.team.component.armor.DropSwordEvent;
+import dev.bsbedwars.it.team.component.sword.DropSwordEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.GameFile;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -69,9 +69,10 @@ public final class BedWars extends JavaPlugin {
         loadCommand();
         loadEvent();
 
+        this.arena = new Arena();
+
         this.shopProvider = new ShopProvider();
         shopProvider.load();
-        this.arena = new Arena();
 
         Bukkit.getConsoleSender().sendMessage(ChatUtils.color(ChatUtils.prefix() + "Plugin enabled in &b" + (System.currentTimeMillis() - currentTimeMillis) + "&ams"));
 
@@ -101,6 +102,7 @@ public final class BedWars extends JavaPlugin {
     public void loadConfig() {
         new GameFile("config.yml");
         new GameFile("messages.yml");
+        new GameFile("shop.yml");
         new GameFile("component/teams.yml");
         new GameFile("component/generators.yml");
         new GameFile("component/lobby.yml");

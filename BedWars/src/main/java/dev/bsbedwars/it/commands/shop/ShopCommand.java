@@ -12,7 +12,7 @@ public class ShopCommand extends BaseCommand {
 
     @Default
     public void onShop(Player player) {
-        new ShopGUI(BedWars.getInstance().getShopProvider().getCategory("main")).open(player);
+        new ShopGUI(BedWars.getInstance().getShopProvider().getCategory("main"), player).open(player);
     }
 
 }

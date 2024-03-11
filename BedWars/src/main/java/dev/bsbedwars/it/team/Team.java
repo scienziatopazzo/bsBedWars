@@ -9,11 +9,13 @@ import dev.bsbedwars.it.utils.Cuboid;
 import dev.bsbedwars.it.utils.LocationUtil;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.Dye;
 
 import java.util.List;
 
@@ -64,8 +66,14 @@ public class Team {
         generator.setLevel(level);
     }
 
-    public ItemStack getWood() {
-        return new ItemStack(Material.WOOL, 1, color.getWoolColor());
+    public short getWoolID() {
+        return color.getWoolColor();
     }
+
+    public DyeColor getDyeColor() {
+        return color.getDyeColor();
+    }
+
+
 
 }

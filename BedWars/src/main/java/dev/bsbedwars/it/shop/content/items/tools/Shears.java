@@ -1,24 +1,25 @@
-package dev.bsbedwars.it.shop.content.items.sword;
+package dev.bsbedwars.it.shop.content.items.tools;
 
 import dev.bsbedwars.it.shop.content.ShopItem;
 import dev.bsbedwars.it.shop.content.ShopPrice;
 import dev.bsbedwars.it.utils.ItemFactory;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
-public class DiamondSword extends ShopItem {
-    public DiamondSword() {
+public class Shears extends ShopItem {
+    public Shears() {
         super(
-                "Diamond Sword",
-                ShopPrice.EMERALD,
-                4,
+                "Shears",
+                ShopPrice.IRON,
+                20,
                 false
         );
     }
 
     @Override
     public ItemFactory getItemDisplayName(Player player) {
-        return new ItemFactory(Material.DIAMOND_SWORD).name("&bDiamond Sword").setUnbreakable(true);
+        return new ItemFactory(new ItemStack(Material.SHEARS));
     }
 
     @Override

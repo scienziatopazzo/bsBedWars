@@ -3,6 +3,7 @@ package dev.bsbedwars.it.arena.runnable;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.team.component.armor.Armor;
+import dev.bsbedwars.it.team.component.sword.Sword;
 import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -53,7 +54,7 @@ public class DeathAnimation extends BukkitRunnable {
             player.teleport(team.getSpawnLocation());
             ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn", player.getName(), team.getColor().toString(), team.getColor().getColorCode());
             player.getInventory().clear();
-            Armor.giveWoodSword(player);
+            Sword.giveWoodSword(player);
             Armor.updatePlayerArmor(player, Armor.getArmor(player));
             cancel();
             return;

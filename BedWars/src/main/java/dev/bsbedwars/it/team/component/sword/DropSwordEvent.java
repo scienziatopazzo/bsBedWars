@@ -1,5 +1,6 @@
-package dev.bsbedwars.it.team.component.armor;
+package dev.bsbedwars.it.team.component.sword;
 
+import dev.bsbedwars.it.team.component.armor.Armor;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
@@ -23,7 +24,7 @@ public class DropSwordEvent implements Listener {
                 return;
             }
             if(sword == 0)
-                Armor.giveWoodSword(e.getPlayer());
+                Sword.giveWoodSword(e.getPlayer());
         }
     }
 
