@@ -24,7 +24,7 @@ public class JoinUtils {
 
 
         if(bw == null) {
-            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cNo bedwars found!"));
+            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cError, no bedwars games!"));
             return;
         }
 
@@ -32,7 +32,7 @@ public class JoinUtils {
     }
 
     public static void connect(Player player, BedWars bedWars) {
-        player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&bConnecting to &c" + bedWars.getName() + "&b..."));
+        player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&6Connecting to &e" + bedWars.getName() + "&6..."));
         Lobby.getInstance().getCommon().getBungeeApi().connect(player, bedWars.getName());
     }
 

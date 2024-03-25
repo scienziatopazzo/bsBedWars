@@ -1,17 +1,125 @@
-# SetUP
+# bsBedwars by @VedCodee & @BinaryCodee
+#
+# ALL SECTIONS:
+# - General
+# - Scoreboard
+# - Cooldowns
+#
+# ALL PLACEHOLDERS:
+# - {date}
+# - {startingCooldown}
+# - {players}
+# - {maxPlayers}
+# - {Map}
+# - {player}
+# - {TEAM_Color} (Color like: &c, &b etc...)
+# - {TEAM_Name} (Name like: Red, Blue etc...)
+# - {TEAM_Status}
+# - {server_ip}
+#
+
+# SECTION: General
 Type: SOLO
 Status: LOBBY
-BedWarsBungeeCordID: "bedwars" # put here the server bungee id
+BedWarsBungeeCordID: "bedwars"
 
-# Bw Config
+# SECTION: Cooldowns
 Starting_time_seconds: 10
 Win_time_seconds: 5
-
 respawn_seconds: 4
-
-
-
-# Fireball
 Cooldown:
   enabled: true
   time: 20
+
+# SECTION: Scoreboard
+scoreboard:
+  inGame:
+    title: "&b&lBEDWARS"
+    SQUAD:
+      - "&7{date}"
+      - ""
+      - "{RED_Color}&lR&f {RED_Name}&f: {RED_Status}"
+      - "{BLUE_Color}&lB&f {BLUE_Name}&f: {BLUE_Status}"
+      - "{GREEN_Color}&lG&f {GREEN_Name}&f: {GREEN_Status}"
+      - "{YELLOW_Color}&lY &f{YELLOW_Name}&f: {YELLOW_Status}"
+      - ""
+      - "&e{server_ip}"
+    TRIO:
+      - "&7{date}"
+      - ""
+      - "{RED_Color}&lR&f {RED_Name}&f: {RED_Status}"
+      - "{BLUE_Color}&lB&f {BLUE_Name}&f: {BLUE_Status}"
+      - "{GREEN_Color}&lG&f {GREEN_Name}&f: {GREEN_Status}"
+      - "{YELLOW_Color}&lY &f{YELLOW_Name}&f: {YELLOW_Status}"
+      - ""
+      - "&e{server_ip}"
+    DUO:
+      - "&7{date}"
+      - ""
+      - "{RED_Color}&lR&f {RED_Name}&f: {RED_Status}"
+      - "{BLUE_Color}&lB&f {BLUE_Name}&f: {BLUE_Status}"
+      - "{GREEN_Color}&lG&f {GREEN_Name}&f: {GREEN_Status}"
+      - "{YELLOW_Color}&lY &f{YELLOW_Name}&f: {YELLOW_Status}"
+      - "{CYAN_Color}&lC &f{CYAN_Name}&f: {CYAN_Status}"
+      - "{WHITE_Color}&lW &f{WHITE_Name}&f: {WHITE_Status}"
+      - "{PINK_Color}&lP &f{PINK_Name}&f: {PINK_Status}"
+      - "{GRAY_Color}&lG &f{GRAY_Name}&f: {GRAY_Status}"
+      - ""
+      - "&e{server_ip}"
+    SOLO:
+      - "&7{date}"
+      - ""
+      - "{RED_Color}&lR&f {RED_Name}&f: {RED_Status}"
+      - "{BLUE_Color}&lB&f {BLUE_Name}&f: {BLUE_Status}"
+      - "{GREEN_Color}&lG&f {GREEN_Name}&f: {GREEN_Status}"
+      - "{YELLOW_Color}&lY &f{YELLOW_Name}&f: {YELLOW_Status}"
+      - "{CYAN_Color}&lC &f{CYAN_Name}&f: {CYAN_Status}"
+      - "{WHITE_Color}&lW &f{WHITE_Name}&f: {WHITE_Status}"
+      - "{PINK_Color}&lP &f{PINK_Name}&f: {PINK_Status}"
+      - "{GRAY_Color}&lG &f{GRAY_Name}&f: {GRAY_Status}"
+      - ""
+      - "&e{server_ip}"
+  lobby:
+    title: "&b&lBEDWARS"
+    lines:
+      - "&7{date}"
+      - ""
+      - "&bPlayers: &f{players}&7/&f{maxPlayers}"
+      - "&bMap: &f{Map}"
+      - ""
+      - "&bWaiting for players..."
+      - ""
+      - "&bMode: &f{mode}"
+      - "&bVersion: &f1.0-BETA"
+      - ""
+      - "&e{server_ip}"
+  starting:
+    title: "&b&lBEDWARS"
+    lines:
+      - "&7{date}"
+      - ""
+      - "&bPlayers: &f{players}&7/&f{maxPlayers}"
+      - "&bMap: &f{Map}"
+      - ""
+      - "&bStarting in: &f{startingCooldown}s"
+      - ""
+      - "&bMode: &f{mode}"
+      - "&bVersion: &f1.0-BETA"
+      - ""
+      - "&e{server_ip}"
+
+tab:
+  spectator: "&8[&9Spectator&8] &f "
+  game: "&8[{Team_color}{Team_name}&8] "
+  header:
+    - ""
+    - "&b&lBSBEDWARS"
+    - ""
+  footer:
+    - ""
+    - "&bSito: &7www.betterstudios.it"
+    - "&bDiscord: &7discord.gg/betterstudios"
+    - "&bStore: &7store.betterstudios.it"
+    - "&bTeamSpeak: &7ts.betterstudios.it"
+    - ""
+serverIP: "play.betterstudios.it"

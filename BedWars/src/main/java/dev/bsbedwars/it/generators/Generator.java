@@ -37,7 +37,7 @@ public class Generator {
 
     public void start() {
         CompletableFuture.runAsync(() -> {
-            task = Bukkit.getScheduler().runTaskTimer(BedWars.getInstance(), new GeneratorRunnable(this), 0L, 20L);
+            task = Bukkit.getScheduler().runTaskTimer(BedWars.getInstance(), new GeneratorRunnable(this), 0L, 5L);
         });
     }
 

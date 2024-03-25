@@ -1,13 +1,17 @@
 package dev.bsbedwars.it.arena;
 
 import dev.bsbedwars.it.BedWars;
+import dev.bsbedwars.it.arena.runnable.ScoreboardRunnable;
 import dev.bsbedwars.it.arena.runnable.StartingRunnable;
+import dev.bsbedwars.it.arena.runnable.TABRunnable;
 import dev.bsbedwars.it.arena.runnable.WinRunnable;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
 import dev.bsbedwars.it.event.reg.BedWarsWinEvent;
 import dev.bsbedwars.it.generators.Generator;
+import dev.bsbedwars.it.npc.NPCManager;
 import dev.bsbedwars.it.team.Team;
+import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.utils.GameFile;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +36,7 @@ public class Arena {
     private final GameFile teamsFile;
     private final GameFile generatorsFile;
     private final GameFile lobbyFile;
+    private final GameFile villagersFile;
     private final GameFile shopFile;
     private final FileConfiguration config;
     private final FileConfiguration messageConfig;
@@ -41,6 +46,8 @@ public class Arena {
     private final List<Generator> generators;
     @Setter
     private List<Team> teams;
+    @Setter
+    private StartingRunnable startingRunnable;
 
 
     public Arena() {
@@ -51,6 +58,7 @@ public class Arena {
         this.teamsFile = new GameFile("component/teams.yml");
         this.generatorsFile = new GameFile("component/generators.yml");
         this.lobbyFile = new GameFile("component/lobby.yml");
+        this.villagersFile = new GameFile("component/villagers.yml");
         this.generators = new ArrayList<>();
         this.config = configFile.getFileConfiguration();
         this.messageConfig = messageFile.getFileConfiguration();
@@ -58,6 +66,8 @@ public class Arena {
         this.status = config.getString("Status") == null ? Status.LOBBY : Status.valueOf(config.getString("Status").toUpperCase());
         this.players = new ArrayList<>();
         this.spectators = new ArrayList<>();
+        new ScoreboardRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 20L);
+        new TABRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 20L);
     }
 
 
@@ -69,8 +79,8 @@ public class Arena {
         if(players.size() < type.getMinPlayers())
             return;
 
-        new StartingRunnable(this, config.getInt("Starting_time_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
-
+        this.startingRunnable = new StartingRunnable(this, config.getInt("Starting_time_seconds"));
+        startingRunnable.runTaskTimer(BedWars.getInstance(), 0L, 20L);
     }
 
     public void stop() {
@@ -98,6 +108,7 @@ public class Arena {
         blockPlaced.clear();
         // Kill All entity
         Bukkit.getWorld("world").getEntities().forEach(Entity::remove);
+        NPCManager.removeALL();
     }
 
     public Team getTeam(Player player) {
@@ -119,7 +130,9 @@ public class Arena {
     }
 
 
-
+    public Team getTeamByColor(TeamColor color) {
+        return teams.stream().filter(team -> team.getColor() == color).findFirst().orElse(null);
+    }
 
 
     public void setType(Type newType) {

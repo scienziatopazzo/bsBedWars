@@ -26,8 +26,9 @@ public class BedWarsKillEvent extends Event implements Listener {
     private Team teamVictim;
     private boolean finalKill;
     private PlayerDeathEvent event;
+    private boolean suicide;
 
-    public BedWarsKillEvent(Arena arena, Player player, Team team, Player victim, Team teamVictim, boolean finalKill, PlayerDeathEvent event) {
+    public BedWarsKillEvent(Arena arena, Player player, Team team, Player victim, Team teamVictim, boolean finalKill, PlayerDeathEvent event, boolean suicide) {
         this.arena = arena;
         this.player = player;
         this.team = team;
@@ -35,6 +36,7 @@ public class BedWarsKillEvent extends Event implements Listener {
         this.teamVictim = teamVictim;
         this.finalKill = finalKill;
         this.event = event;
+        this.suicide = suicide;
     }
 
     public BedWarsKillEvent() {}
@@ -54,28 +56,45 @@ public class BedWarsKillEvent extends Event implements Listener {
     @EventHandler
     public void onKill(PlayerDeathEvent e) {
 
-        if(e.getEntity().getKiller() == null || e.getEntity().getKiller().getType() != EntityType.PLAYER)
-            return;
+        boolean suicide = e.getEntity().getKiller() == null || e.getEntity().getKiller().getType() != EntityType.PLAYER;
 
-        Arena arena = BedWars.getInstance().getArena();
+        if(suicide) {
+            Arena arena = BedWars.getInstance().getArena();
 
-        if(arena == null)
-            return;
+            if(arena == null)
+                return;
 
-        Player player = e.getEntity().getKiller();
-        Player victim = e.getEntity();
+            Player victim = e.getEntity();
 
-        Team team = arena.getTeam(player);
-        Team teamVictim = arena.getTeam(victim);
+            Team teamVictim = arena.getTeam(victim);
 
-        if(team == null)
-            return;
+            if(team == null)
+                return;
 
-        boolean finalKill = !teamVictim.isBedAlive();
+            boolean finalKill = !teamVictim.isBedAlive();
+            Bukkit.getPluginManager().callEvent(new BedWarsKillEvent(arena, null, null, victim, teamVictim, finalKill, e, true));
+        } else {
+            Arena arena = BedWars.getInstance().getArena();
+
+            if(arena == null)
+                return;
+
+            Player player = e.getEntity().getKiller();
+            Player victim = e.getEntity();
+
+            Team team = arena.getTeam(player);
+            Team teamVictim = arena.getTeam(victim);
+
+            if(team == null)
+                return;
+
+            boolean finalKill = !teamVictim.isBedAlive();
+            Bukkit.getPluginManager().callEvent(new BedWarsKillEvent(arena, player, team, victim, teamVictim, finalKill, e, false));
+        }
+
 
         e.setDeathMessage("");
 
-        Bukkit.getPluginManager().callEvent(new BedWarsKillEvent(arena, player, team, victim, teamVictim, finalKill, e));
 
     }
 

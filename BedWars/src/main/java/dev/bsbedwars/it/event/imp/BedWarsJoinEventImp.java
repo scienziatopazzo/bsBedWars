@@ -13,6 +13,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.HashMap;
+
 public class BedWarsJoinEventImp implements Listener {
 
 
@@ -42,8 +44,13 @@ public class BedWarsJoinEventImp implements Listener {
         player.sendMessage(ChatUtils.color("&bSuccessfully joined the game!"));
 
         for (Player playerInArena : arena.getPlayers())
-            if(playerInArena != player)
-                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "joined_msg", player.getName(), String.valueOf(arena.getPlayers().size()), String.valueOf(arena.getType().getMaxPlayers()));
+            if(playerInArena != player) {
+                HashMap<String, String> placeholder = new HashMap<>();
+                placeholder.put("player", player.getName());
+                placeholder.put("players", String.valueOf(arena.getPlayers().size()));
+                placeholder.put("maxPlayers", String.valueOf(arena.getType().getMaxPlayers()));
+                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "joined_msg", placeholder);
+            }
 
         if(!arena.getLobbyFile().getFileConfiguration().isSet("lobby"))
             return;

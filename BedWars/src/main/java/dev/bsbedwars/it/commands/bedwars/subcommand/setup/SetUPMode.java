@@ -37,7 +37,7 @@ public class SetUPMode {
                         .name("&b&lSETUP")
                         .setLore(
                                 "",
-                                "&7Click for open gui setup",
+                                "&7Click to open the setup gui!",
                                 "")
                         .build()
         );

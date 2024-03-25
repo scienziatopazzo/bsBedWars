@@ -28,16 +28,26 @@ public class BedWarsKillEventImp implements Listener {
         Team team = e.getTeam();
         Team teamVictim = e.getTeamVictim();
         boolean finalKill = e.isFinalKill();
+        boolean suicide = e.isSuicide();
 
+        HashMap<String, String> placeholder = new HashMap<>();
+        if(!suicide) {
+            placeholder.put("player", player.getName());
+            placeholder.put("player_team_color_code", team.getColor().getColorCode());
+            placeholder.put("player_team_color_name", team.getColor().toString());
+        }
+        placeholder.put("victim_name", victim.getName());
+        placeholder.put("victim_team_color_code", teamVictim.getColor().getColorCode());
+        placeholder.put("victim_team_color_name", teamVictim.getColor().toString());
         for (Player playerInArena : arena.getPlayers()) {
             if(finalKill) {
-                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "finalKill", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), victim.getName(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
+                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), !suicide ? "finalKill" : "finalKill_suicide", placeholder);
             }else {
-                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "kill", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), victim.getName(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
+                ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), !suicide ? "kill" : "kill_suicide", placeholder);
             }
         }
 
-        ChatUtils.sendMessage(victim, arena.getMessageConfig(), "kill_msg", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), victim.getName(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
+        ChatUtils.sendMessage(victim, arena.getMessageConfig(), "kill_msg", placeholder);
 
         if (finalKill) {
             teamVictim.getPlayers().remove(victim);
@@ -59,6 +69,8 @@ public class BedWarsKillEventImp implements Listener {
                 .filter(itemStack -> !itemStack.getType().toString().contains("LEGGINGS"))
                 .filter(itemStack -> !itemStack.getType().toString().contains("BOOTS"))
                 .toArray(ItemStack[]::new));
+
+        e.getEvent().getDrops().clear();
 
         new DeathAnimation(e.getArena(), victim, teamVictim, finalKill, arena.getConfig().getInt("respawn_seconds")).runTaskTimer(BedWars.getInstance(), 0L, 20L);
 

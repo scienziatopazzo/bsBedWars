@@ -21,7 +21,12 @@ public class BedWarsBlockPlace implements Listener {
         Block block = e.getBlock();
 
         if(arena.getStatus() == Status.LOBBY || arena.getStatus() == Status.STARTING) {
-            e.getPlaceEvent().setCancelled(true);
+            if(!BuildManager.getEnableBuild().contains(player)) {
+                e.getPlaceEvent().setCancelled(true);
+                return;
+            }
+            if(arena.getStatus() != Status.LOBBY)
+                arena.getBlockPlaced().add(block);
             return;
         }
 

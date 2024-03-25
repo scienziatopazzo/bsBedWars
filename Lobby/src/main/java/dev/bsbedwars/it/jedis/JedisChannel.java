@@ -47,14 +47,19 @@ public class JedisChannel implements JedisManager.MessageListener {
             throw new NotFoundException("Invalid jedis message sended: " + split[2] + "! (2)");
 
         BedWarsManager manager = Lobby.getInstance().getBedWarsManager();
+        BedWars bedWars = null;
 
-        BedWars bedWars = manager.getBedWars().stream()
-                .filter(bw -> bw.getName().equalsIgnoreCase(bedwarsUUID))
-                .findFirst()
-                .orElse(null);
+        if(messageType != MessageType.PLUGINSTATUS) {
+            bedWars = manager.getBedWars().stream()
+                    .filter(bw -> bw.getName().equalsIgnoreCase(bedwarsUUID))
+                    .findFirst()
+                    .orElse(null);
 
-        if(bedWars == null)
-            return;
+
+            if(bedWars == null)
+                return;
+        }
+
 
         Logger logger = Lobby.getInstance().getCommon().getLogger();
 

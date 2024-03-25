@@ -14,6 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.material.Bed;
 
 public class SetTeam extends BWSubCommand {
 
@@ -37,6 +38,7 @@ public class SetTeam extends BWSubCommand {
         for (Block block : cuboid.getAllBlocks()) {
             if(block.getType() == Material.BED_BLOCK)
                 bedLocation = block.getLocation();
+
             if(block.getType() == Material.IRON_BLOCK)
                 generatorLocation = block.getLocation();
         }

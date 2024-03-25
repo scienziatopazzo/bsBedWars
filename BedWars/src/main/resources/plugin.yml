@@ -1,3 +1,5 @@
 name: BedWars
 version: '${project.version}'
 main: dev.bsbedwars.it.BedWars
+softdepend:
+  - Citizens

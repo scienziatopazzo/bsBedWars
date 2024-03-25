@@ -17,30 +17,30 @@ public enum GeneratorType {
             new HashMap<ItemStack, Integer>() {{
                 put(new ItemFactory(Material.DIAMOND, 1).name("&bDiamond").build(), 100);
             }},
+            80,
             20,
-            5,
             2
     ),
     EMERALD(
             new HashMap<ItemStack, Integer>() {{
-                put(new ItemFactory(Material.EMERALD, 1).name("&bDiamond").build(), 100);
+                put(new ItemFactory(Material.EMERALD, 1).name("&aEmerald").build(), 100);
             }},
+            80,
             20,
-            5,
             2
     ),
     BASE(
             new HashMap<ItemStack, Integer>() {{
-                put(new ItemFactory(Material.IRON_INGOT, 2).name("&bDiamond").build(), 70);
-                put(new ItemFactory(Material.GOLD_INGOT, 1).name("&bDiamond").build(), 30);
+                put(new ItemFactory(Material.IRON_INGOT, 2).name("&fIron").build(), 70);
+                put(new ItemFactory(Material.GOLD_INGOT, 1).name("&6Gold").build(), 30);
             }},
+            4,
             1,
-            0,
-            3
+            4
     );
 
     private final HashMap<ItemStack, Integer> materials;
-    private final int seconds;
+    private final int seconds; // 1 SECONDS = 1/4 SECONDS
     private final int secondsRemoveLevel; // How seconds remove level. Example level 1 = 10s if secondsRemoveLevel = 2s, level 2 = 8s
     private final int maxLevel;
 }

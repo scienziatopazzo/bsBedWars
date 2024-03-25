@@ -11,30 +11,26 @@ public class BedWars {
 
 
     private final String name;
+    private final boolean fake;
     @Setter
     private Type type;
     @Setter
     private Status status;
+    @Setter
     private int players;
 
 
-    public BedWars(String name, Type type, Status status) {
+    public BedWars(String name, Type type, Status status, boolean fake) {
         this.name = name;
         this.type = type;
         this.status = status;
-        startRunnable();
+        this.fake = fake;
     }
 
-    public void startRunnable()  {
-        Bukkit.getScheduler().runTaskTimer(Lobby.getInstance(), this::updatePlayers, 0L, 5L);
+    public BedWars(String name, Type type, Status status) {
+        this.name = name;
+        this.fake = false;
+        this.type = type;
+        this.status = status;
     }
-
-    public void updatePlayers() {
-        if(!Bukkit.getOnlinePlayers().isEmpty())
-            Lobby.getInstance().getCommon().getBungeeApi().getPlayerCount(name).whenComplete((count, error) -> {
-                players = count;
-            });
-
-    }
-
 }

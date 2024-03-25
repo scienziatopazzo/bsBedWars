@@ -32,7 +32,7 @@ public abstract class ShopItem implements Listener {
         this.priceType = priceType;
         this.price = price;
         this.requireReload = requireReload;
-        BedWars.getInstance().getShopProvider().getItems().add(this);
+        BedWars.getInstance().getShopProvider().getShopItems().add(this);
     }
 
 

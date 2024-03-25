@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import java.util.HashMap;
+
 public class BedWarsWinEventImp implements Listener {
 
 
@@ -17,10 +19,12 @@ public class BedWarsWinEventImp implements Listener {
         Team team = e.getTeam();
 
         //team.getPlayers().forEach(playerInArena -> ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win_private", team.getColor().getColorCode(), team.getColor().toString()));
-
+        HashMap<String, String> placeholder = new HashMap<>();
+        placeholder.put("team_color_code", team.getColor().getColorCode());
+        placeholder.put("team_color_name", team.getColor().toString());
         arena.getPlayers().forEach(playerInArena -> {
-            ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win", team.getColor().getColorCode(), team.getColor().toString());
-            ChatUtils.sendTitle(playerInArena, arena.getMessageConfig(), "win_title", team.getColor().getColorCode(), team.getColor().toString());
+            ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "win", placeholder);
+            ChatUtils.sendTitle(playerInArena, arena.getMessageConfig(), "win_title", placeholder);
         });
     }
 

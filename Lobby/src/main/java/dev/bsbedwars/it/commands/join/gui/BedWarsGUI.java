@@ -22,10 +22,10 @@ public class BedWarsGUI extends AbstractGUI {
         super("BedWars " + type.toString(), 27);
         setItem(
                 new ItemFactory(Material.BED)
-                        .name("&c&l" + type.toString())
+                        .name("&e" + type.toString())
                         .setLore(
                                 "",
-                                "&bClick to join in a bedwars!",
+                                "&7Click to join in a bedwars game!",
                                 ""
                         )
                         .build(),
@@ -33,10 +33,11 @@ public class BedWarsGUI extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.SIGN)
-                        .name("&cBedWars list")
+                        .name("&eMaps")
                         .setLore(
                                 "",
-                                "&bSee all solo bedwars active!",
+                                "&eSee all solo maps availables",
+                                "&7Click to open the selector!",
                                 ""
                         )
                         .build(),
@@ -67,7 +68,7 @@ public class BedWarsGUI extends AbstractGUI {
 
             if(bw == null) {
                 player.closeInventory();
-                player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cNo bedwars found!"));
+                player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cError, no games availables!"));
                 sound(player, Sound.VILLAGER_NO);
                 return true;
             }

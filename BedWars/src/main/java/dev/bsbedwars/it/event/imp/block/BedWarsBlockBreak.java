@@ -20,7 +20,12 @@ public class BedWarsBlockBreak implements Listener {
         Block block = e.getBlock();
 
         if(arena.getStatus() == Status.LOBBY || arena.getStatus() == Status.STARTING || arena.getStatus() == Status.ENDING || !arena.getBlockPlaced().contains(block)) {
-            e.getBreakEvent().setCancelled(true);
+            if(!BuildManager.getEnableBuild().contains(player)) {
+                e.getBreakEvent().setCancelled(true);
+                return;
+            }
+            if(arena.getStatus() != Status.LOBBY)
+                arena.getBlockPlaced().remove(block);
             return;
         }
 

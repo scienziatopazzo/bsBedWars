@@ -7,6 +7,7 @@ import dev.bsbedwars.it.jedis.JedisManager;
 import dev.bsbedwars.it.utils.BungeeChannelApi;
 import dev.bsbedwars.it.utils.Logger;
 import lombok.Getter;
+import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +22,7 @@ public final class Common  {
     private final String prefix;
     private final Logger logger;
     private final BungeeChannelApi bungeeApi;
+    private final LuckPerms luckPerms;
 
     public Common(JavaPlugin main) {
         instance = this;
@@ -32,6 +34,7 @@ public final class Common  {
         Bukkit.getPluginManager().registerEvents(new OnClickGUI(), main);
 
         this.bungeeApi = BungeeChannelApi.of(main);
+        this.luckPerms = main.getServer().getPluginManager().isPluginEnabled("LuckPerms") ? main.getServer().getServicesManager().load(LuckPerms.class) : null;
 
         Bukkit.getPluginManager().registerEvents(new PlayerHitHologram(), main);
     }

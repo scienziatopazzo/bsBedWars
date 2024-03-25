@@ -19,10 +19,15 @@ public class UpdateTeamRunnable extends BukkitRunnable {
             cancel();
             return;
         }
-        for (Player player : arena.getPlayers()) {
-            Sword.updateSword(player);
-            Armor.updateEnchantPlayerArmor(player);
+        try {
+            for (Player player : arena.getPlayers()) {
+                Sword.updateSword(player);
+                Armor.updateEnchantPlayerArmor(player);
+            }
+        }catch (Exception e) {
+            return;
         }
+
 
     }
 }

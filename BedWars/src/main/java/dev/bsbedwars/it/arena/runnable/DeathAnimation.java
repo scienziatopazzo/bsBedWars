@@ -9,6 +9,8 @@ import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.HashMap;
+
 public class DeathAnimation extends BukkitRunnable {
 
     private final Arena arena;
@@ -16,6 +18,7 @@ public class DeathAnimation extends BukkitRunnable {
     private final Team team;
     private final boolean finalKill;
     private int seconds;
+
 
 
     public DeathAnimation(Arena arena, Player player, Team team, boolean finalKill, int seconds) {
@@ -42,7 +45,11 @@ public class DeathAnimation extends BukkitRunnable {
         if(finalKill) {
             player.setGameMode(GameMode.SPECTATOR);
             player.teleport(team.getBedLocation());
-            ChatUtils.sendMessage(player, arena.getMessageConfig(), "final_kill_respawn_msg", player.getName(), team.getColor().toString(), team.getColor().getColorCode());
+            HashMap<String, String> placeholder = new HashMap<>();
+            placeholder.put("player", player.getName());
+            placeholder.put("team_name", team.getColor().toString());
+            placeholder.put("team_color", team.getColor().getColorCode());
+            ChatUtils.sendMessage(player, arena.getMessageConfig(), "final_kill_respawn_msg", placeholder);
             cancel();
             return;
         }
@@ -52,7 +59,11 @@ public class DeathAnimation extends BukkitRunnable {
         if(seconds < 0) {
             player.setGameMode(GameMode.SURVIVAL);
             player.teleport(team.getSpawnLocation());
-            ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn", player.getName(), team.getColor().toString(), team.getColor().getColorCode());
+            HashMap<String, String> placeholder = new HashMap<>();
+            placeholder.put("player", player.getName());
+            placeholder.put("team_name", team.getColor().toString());
+            placeholder.put("team_color", team.getColor().getColorCode());
+            ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn", placeholder);
             player.getInventory().clear();
             Sword.giveWoodSword(player);
             Armor.updatePlayerArmor(player, Armor.getArmor(player));
@@ -64,8 +75,14 @@ public class DeathAnimation extends BukkitRunnable {
         player.spigot().respawn();
         player.setGameMode(GameMode.SPECTATOR);
 
-        ChatUtils.sendTitle(player, arena.getMessageConfig(), "respawn_title", player.getName(), team.getColor().toString(), team.getColor().getColorCode(), String.valueOf(seconds));
-        ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn_msg", player.getName(), team.getColor().toString(), team.getColor().getColorCode(), String.valueOf(seconds));
+        HashMap<String, String> placeholder = new HashMap<>();
+        placeholder.put("player", player.getName());
+        placeholder.put("team_name", team.getColor().toString());
+        placeholder.put("team_color", team.getColor().getColorCode());
+        placeholder.put("seconds", String.valueOf(seconds));
+        ChatUtils.sendMessage(player, arena.getMessageConfig(), "respawn_msg", placeholder);
+        ChatUtils.sendTitle(player, arena.getMessageConfig(), "respawn_title", placeholder);
+
 
         seconds--;
 

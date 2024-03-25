@@ -13,6 +13,7 @@ public class ShopCategory {
     private final String id;
     private final ItemStack itemDisplay;
     private final HashMap<Integer, ShopItem> shopItems;
+    private final HashMap<Integer, UpgradeItem> upgradeItems;
     private final HashMap<Integer, ItemStack> shopContent;
     private final HashMap<Integer, String> shopCategory;
 

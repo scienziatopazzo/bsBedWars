@@ -12,7 +12,7 @@ public class PlayerHitHologram implements Listener {
     @EventHandler
     public void onHit(EntityDamageByEntityEvent event) {
         if(!(event.getEntity() instanceof ArmorStand) && !(event.getDamager() instanceof Player)) return;
-        if(HologramFactory.HOLOGRAMS_CACHE.contains((ArmorStand) event.getDamager()))
+        if(HologramFactory.HOLOGRAMS_CACHE.stream().anyMatch(hologram -> hologram.getHologram().contains((ArmorStand) event.getEntity())))
             event.setCancelled(true);
 
     }

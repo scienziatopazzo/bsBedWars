@@ -1,14 +1,13 @@
 package dev.bsbedwars.it;
 
 import co.aikar.commands.BukkitCommandManager;
-import dev.bsbedwars.it.bedwars.BedWars;
-import dev.bsbedwars.it.bedwars.BedWarsManager;
-import dev.bsbedwars.it.bedwars.Status;
-import dev.bsbedwars.it.bedwars.Type;
+import dev.bsbedwars.it.bedwars.*;
 import dev.bsbedwars.it.commands.join.JoinCommand;
 import dev.bsbedwars.it.commands.join.runnable.BedWarsGUIReload;
 import dev.bsbedwars.it.commands.spawn.SpawnCommand;
 import dev.bsbedwars.it.jedis.JedisChannel;
+import dev.bsbedwars.it.scoreboard.ScoreboardRunnable;
+import dev.bsbedwars.it.scoreboard.TabRunnable;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.GameFile;
 import dev.bsbedwars.it.utils.Logger;
@@ -47,6 +46,8 @@ public final class Lobby extends JavaPlugin {
         this.bedWarsManager = new BedWarsManager();
 
         Bukkit.getScheduler().runTaskAsynchronously(this, this::startListening);
+        new ScoreboardRunnable().runTaskTimer(this, 0L, 20L);
+        new TabRunnable().runTaskTimer(this, 0L, 20L);
 
 
         BukkitCommandManager commandManager = new BukkitCommandManager(this);
@@ -74,6 +75,13 @@ public final class Lobby extends JavaPlugin {
         Bukkit.getWorld("world").setGameRuleValue("doFireTick", "false");
         Bukkit.getWorld("world").setGameRuleValue("mobGriefing", "false");
 
+        /*
+        for (int i = 0; i < 100; i++)
+            getBedWarsManager().getBedWars().add(new BedWars(UUID.randomUUID().toString(), Type.SOLO, Status.LOBBY, true));
+
+         */
+
+        new BedWarsRunnable().runTaskTimer(this, 0L, 5L);
     }
 
     @Override

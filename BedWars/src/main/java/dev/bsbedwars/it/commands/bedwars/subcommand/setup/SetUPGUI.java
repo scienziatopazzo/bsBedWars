@@ -17,7 +17,7 @@ public class SetUPGUI extends AbstractGUI {
     public static boolean on = true;
 
     public SetUPGUI(Arena arena) {
-        super("BedWars SETUP", 54);
+        super("BedWars Setup", 54);
 
         int[] diamondSlot = {38, 39, 47, 48};
 
@@ -79,7 +79,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&a&lCREATIVE")
                         .setLore(
                                 "",
-                                "&7Click for go in creative!",
+                                "&7Click to set your gamemode in creative!",
                                 "")
                         .build(),
                 1
@@ -89,7 +89,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&a&lSURVIVAL")
                         .setLore(
                                 "",
-                                "&7Click for go in survival!",
+                                "&7Click to set your gamemode in survival!",
                                 "")
                         .build(),
                 2
@@ -99,7 +99,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&a&lSPECTATOR")
                         .setLore(
                                 "",
-                                "&7Click for go in spectator!",
+                                "&7Click to set your gamemode in spectator!",
                                 "")
                         .build(),
                 3
@@ -109,7 +109,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&b&lFLY")
                         .setLore(
                                 "",
-                                "&7Click for &aactivate&7/&cdeactivate &7the fly!",
+                                "&7Click for &aactivate &7or &cdeactivate &7fly!",
                                 "")
                         .build(),
                 4
@@ -119,7 +119,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&a&lSTART")
                         .setLore(
                                 "",
-                                "&7Click for start the game!",
+                                "&7Click to start the game!",
                                 "")
                         .build(),
                 5
@@ -129,7 +129,7 @@ public class SetUPGUI extends AbstractGUI {
                         .name("&c&lSTOP")
                         .setLore(
                                 "",
-                                "&7Click for stop the game!",
+                                "&7Click to stop the game!",
                                 "")
                         .build(),
                 6
@@ -140,7 +140,7 @@ public class SetUPGUI extends AbstractGUI {
                             .name("&c&lFAKE OFF")
                             .setLore(
                                     "",
-                                    "&7Click for do a fake off!",
+                                    "&7Click to show invisible this bedwars game!",
                                     "")
                             .build(),
                     7
@@ -151,7 +151,7 @@ public class SetUPGUI extends AbstractGUI {
                             .name("&a&lREDO ON")
                             .setLore(
                                     "",
-                                    "&7Click for redo visible bedwars!",
+                                    "&7Click to show visible this bedwars game!",
                                     "")
                             .build(),
                     7

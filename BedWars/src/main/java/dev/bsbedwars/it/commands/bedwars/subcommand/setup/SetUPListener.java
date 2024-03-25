@@ -16,7 +16,7 @@ public class SetUPListener implements Listener {
     @EventHandler
     public void onPlayerClick(PlayerInteractEvent event) {
         if(event.getPlayer().getItemInHand() == null) return;
-        if(!event.getPlayer().getItemInHand().isSimilar(new ItemFactory(Material.BLAZE_ROD).name("&b&lSETUP").setLore("", "&7Click for open gui setup", "").build())) return;
+        if(!event.getPlayer().getItemInHand().isSimilar(new ItemFactory(Material.BLAZE_ROD).name("&b&lSETUP").setLore("", "&7Click to open the setup gui!", "").build())) return;
         new SetUPGUI(BedWars.getInstance().getArena()).open(event.getPlayer());
     }
 

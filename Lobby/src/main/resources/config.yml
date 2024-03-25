@@ -3,3 +3,34 @@
 debug: true
 
 LobbyBungeeCordID: "lobby" # put here the server bungee id
+
+
+lobby:
+  scoreboard:
+    title: "&3&lBEDWARS"
+    lines:
+      - "&7{date}"
+      - ""
+      - "&bName: &f{player}"
+      - "&bLevel: &f{level}"
+      - "&bProgress: &f{progress}"
+      - ""
+      - "&bClan: &f{clan}"
+      - ""
+      - "&bOnline: &f{online}"
+      - "&bServer: &fBWLobby-1"
+      - ""
+      - "&eplay.betterstudios.it"
+  tab:
+    header:
+      - ""
+      - "&b&lBSBEDWARS"
+      - ""
+    footer:
+      - ""
+      - "&bSito: &7www.betterstudios.it"
+      - "&bDiscord: &7discord.gg/betterstudios"
+      - "&bStore: &7store.betterstudios.it"
+      - "&bTeamSpeak: &7ts.betterstudios.it"
+      - ""
+

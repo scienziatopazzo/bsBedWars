@@ -25,10 +25,10 @@ public class BedWarsGUISelector extends AbstractGUI {
         super("BedWars GUI " + type + " " + page, 54);
         setItem(
                 new ItemFactory(Material.BARRIER)
-                        .name("&c&lCLOSE")
+                        .name("&6CLOSE")
                         .setLore(
                                 "",
-                                "&bClick to close!",
+                                "&eClick to close!",
                                 ""
                         )
                         .build(),
@@ -36,10 +36,10 @@ public class BedWarsGUISelector extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.DIAMOND)
-                        .name("&a&lRANDOM BEDWARS")
+                        .name("&6RANDOM BEDWARS GAMES")
                         .setLore(
                                 "",
-                                "&bClick to join a random bedwars!",
+                                "&eClick to join in a bedwars random game!",
                                 ""
                         )
                         .build(),
@@ -48,7 +48,7 @@ public class BedWarsGUISelector extends AbstractGUI {
         if(page > 1) {
             setItem(
                     new ItemFactory(Material.ARROW)
-                            .name("&bBack page &8(" + (page - 1) + "&8)")
+                            .name("&6Back page &8(&e" + (page - 1) + "&8)")
                             .setLore(
                                     ""
                             )
@@ -64,7 +64,7 @@ public class BedWarsGUISelector extends AbstractGUI {
         if(bedWars.size() > 15 * page) {
             setItem(
                     new ItemFactory(Material.ARROW)
-                            .name("&bNext page &8(" + (page + 1) + "&8)")
+                            .name("&6Next page &8(&e" + (page + 1) + "&8)")
                             .setLore(
                                     ""
                             )
@@ -107,10 +107,10 @@ public class BedWarsGUISelector extends AbstractGUI {
                             .name("&b" + bw.getName())
                             .setLore(
                                     "",
-                                    "&bName: &c" + bw.getName(),
-                                    "&bPlayers: &c" + bw.getPlayers() + "/" + bw.getType().getMaxPlayers(),
-                                    "&bStatus: &c" + bw.getStatus().toString(),
-                                    "&bType: &c" + bw.getType().toString(),
+                                    "&6Name: &e" + bw.getName(),
+                                    "&6Players: &e" + bw.getPlayers() + "/" + bw.getType().getMaxPlayers(),
+                                    "&6Status: &e" + bw.getStatus().toString(),
+                                    "&6Type: &e" + bw.getType().toString(),
                                     ""
                             )
                             .build(),
@@ -128,7 +128,7 @@ public class BedWarsGUISelector extends AbstractGUI {
         if(slot == 18 || slot == 26) {
             InventoryView inventory = player.getOpenInventory();
             Type type = Type.valueOf(inventory.getTitle().replace("BedWars GUI ", "").split(" ")[0]);
-            int page = Integer.parseInt(itemStack.getItemMeta().getDisplayName().replace((slot == 18 ? "§bBack page §8(" : "§bNext page §8("), "").replace("§8)", ""));
+            int page = Integer.parseInt(itemStack.getItemMeta().getDisplayName().replace((slot == 18 ? "§6Back page §8(§e" : "§6Next page §8(§e"), "").replace("§8)", ""));
             new BedWarsGUISelector(type, page).open(player);
             sound(player, Sound.ORB_PICKUP);
             return true;
@@ -156,7 +156,7 @@ public class BedWarsGUISelector extends AbstractGUI {
         if(bw == null) {
             sound(player, Sound.VILLAGER_NO);
             player.closeInventory();
-            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cERROR DURING SCREACH THE BEDWARS!"));
+            player.sendMessage(ChatUtils.color(ChatUtils.prefix() + "&cERROR TO SEARCH A BEDWARS GAMES!"));
             return true;
         }
 

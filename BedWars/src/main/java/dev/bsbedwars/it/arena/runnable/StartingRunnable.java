@@ -5,6 +5,7 @@ import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.generators.GeneratorType;
+import dev.bsbedwars.it.npc.NPCManager;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.team.component.runnable.UpdateTeamRunnable;
 import dev.bsbedwars.it.team.component.armor.Armor;
@@ -12,6 +13,7 @@ import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.team.component.sword.Sword;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.LocationUtil;
+import lombok.Getter;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -21,16 +23,17 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
-
+@Getter
 public class StartingRunnable extends BukkitRunnable {
 
     private final Arena arena;
     private int second;
 
-    public StartingRunnable(Arena arena, int second){
+    public StartingRunnable(Arena arena, int second) {
         this.arena = arena;
         this.second = second;
     }
@@ -39,19 +42,10 @@ public class StartingRunnable extends BukkitRunnable {
     public void run() {
         arena.setStatus(Status.STARTING);
 
-
-        if (arena.getPlayers().size() < arena.getType().getMinPlayers()) {
-            arena.setStatus(Status.LOBBY);
-            for (Player player : arena.getPlayers()){
-                ChatUtils.sendMessage(player, arena.getMessageConfig(), "starting_cancelled", String.valueOf(second));
-                ChatUtils.sendTitle(player, arena.getMessageConfig(), "starting_cancelled_title", String.valueOf(second));
-            }
-            cancel();
-            return;
-        }
-
-
-        if(second < 0){
+        if (second <= 0) {
+            second = 0;
+            arena.getBlockPlaced().clear();
+            NPCManager.create(arena.getVillagersFile().getFileConfiguration());
             // Create teams
             List<Team> teams = createTeams();
             arena.setTeams(teams);
@@ -61,7 +55,7 @@ public class StartingRunnable extends BukkitRunnable {
                 // Teleport to spawn
                 for (Player player : team.getPlayers()) {
                     player.teleport(team.getSpawnLocation());
-                    ChatUtils.sendMessage(player, arena.getMessageConfig(), "started_private_msg");
+                    ChatUtils.sendMessage(player, arena.getMessageConfig(), "started_private_msg", new HashMap<>());
                     player.getInventory().clear();
                     Sword.giveWoodSword(player);
                     Armor.updatePlayerArmor(player, Armor.LEATHER);
@@ -77,7 +71,7 @@ public class StartingRunnable extends BukkitRunnable {
                 FileConfiguration config = arena.getGeneratorsFile().getFileConfiguration();
                 ConfigurationSection selection = config.getConfigurationSection(generatorType.toString());
 
-                if(selection == null)
+                if (selection == null)
                     return;
 
                 for (String key : selection.getKeys(false))
@@ -92,22 +86,37 @@ public class StartingRunnable extends BukkitRunnable {
 
             arena.getGenerators().forEach(Generator::start);
 
-
             arena.setStatus(Status.GAME);
             new UpdateTeamRunnable(arena).runTaskTimerAsynchronously(BedWars.getInstance(), 20, 20);
-            arena.getBlockPlaced().clear();
+            new UpgradeRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 1L);
             cancel();
             return;
         }
 
-
-
-        for (Player player : arena.getPlayers()){
-            if(second == 10 || second <= 5)
-                ChatUtils.sendTitle(player, arena.getMessageConfig(), "starting_title", String.valueOf(second));
-            ChatUtils.sendMessage(player, arena.getMessageConfig(), "starting", String.valueOf(second));
+        for (Player player : arena.getPlayers()) {
+            if (second == 30 || second == 20 || second == 10 || second <= 5) {
+                HashMap<String, String> placeholder = new HashMap<>();
+                placeholder.put("second", String.valueOf(second));
+                ChatUtils.sendTitle(player, arena.getMessageConfig(), "starting_title", placeholder);
+            }
+            if (second == 30 || second <= 10) {
+                HashMap<String, String> placeholder = new HashMap<>();
+                placeholder.put("second", String.valueOf(second));
+                ChatUtils.sendMessage(player, arena.getMessageConfig(), "starting", placeholder);
+            }
         }
 
+        if (arena.getPlayers().size() < arena.getType().getMinPlayers()) {
+            arena.setStatus(Status.LOBBY);
+            for (Player player : arena.getPlayers()) {
+                HashMap<String, String> placeholder = new HashMap<>();
+                placeholder.put("second", String.valueOf(second));
+                ChatUtils.sendMessage(player, arena.getMessageConfig(), "starting_cancelled", placeholder);
+                ChatUtils.sendTitle(player, arena.getMessageConfig(), "starting_cancelled_title", placeholder);
+            }
+            cancel();
+            return;
+        }
 
         second--;
 
@@ -129,11 +138,9 @@ public class StartingRunnable extends BukkitRunnable {
                     teamColor,
                     teamPlayers
             );
-            team.getBedLocation().getBlock().setType(Material.BED_BLOCK);
             teamsMap.add(team);
         }
 
         return teamsMap;
     }
-
 }

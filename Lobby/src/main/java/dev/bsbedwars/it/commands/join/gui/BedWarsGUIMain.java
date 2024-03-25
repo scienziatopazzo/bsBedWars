@@ -15,10 +15,10 @@ public class BedWarsGUIMain extends AbstractGUI {
         super("BedWars", 27);
         setItem(
                 new ItemFactory(Material.BED)
-                        .name("&c&lSOLO")
+                        .name("&6SOLO")
                         .setLore(
                                 "",
-                                "&bClick open GUI solo!",
+                                "&eClick to open the Solo-Mode selector!",
                                 ""
                         )
                         .build(),
@@ -26,10 +26,10 @@ public class BedWarsGUIMain extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.BED)
-                        .name("&c&lDUO")
+                        .name("&6DUO")
                         .setLore(
                                 "",
-                                "&bClick open GUI duo!",
+                                "&eClick to open the Duo-Mode selector!",
                                 ""
                         )
                         .build(),
@@ -37,10 +37,10 @@ public class BedWarsGUIMain extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.SIGN)
-                        .name("&b&lBEDWARS")
+                        .name("&e&lBEDWARS")
                         .setLore(
                                 "",
-                                "&bDo you want play bedwars?",
+                                "&6Do you want play bedwars?",
                                 ""
                         )
                         .build(),
@@ -48,10 +48,10 @@ public class BedWarsGUIMain extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.BED)
-                        .name("&c&lTRIO")
+                        .name("&6TRIO")
                         .setLore(
                                 "",
-                                "&bClick open GUI trio!",
+                                "&eClick to open the Trio-Mode selector!",
                                 ""
                         )
                         .build(),
@@ -59,10 +59,10 @@ public class BedWarsGUIMain extends AbstractGUI {
         );
         setItem(
                 new ItemFactory(Material.BED)
-                        .name("&c&lSQUAD")
+                        .name("&6SQUAD")
                         .setLore(
                                 "",
-                                "&bClick open GUI squad!",
+                                "&eClick to open the Squad-Mode selector!",
                                 ""
                         )
                         .build(),

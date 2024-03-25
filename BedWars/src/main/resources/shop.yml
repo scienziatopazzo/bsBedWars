@@ -64,6 +64,8 @@ category:
     material: "wood_pickaxe"
   special:
     material: "tnt"
+  upgrade:
+    material: "diamond_pickaxe"
 
 main:
   0:
@@ -327,4 +329,20 @@ special:
     shopItem: "Tnt"
   28:
     shopItem: "Water"
+  29:
+    shopItem: "Tower"
+
+upgrade:
+  11:
+    upgradeItem: "Sharp Sword"
+  12:
+    upgradeItem: "Armor Upgrade"
+  13:
+    upgradeItem: "Maniac Miner"
+  20:
+    upgradeItem: "Iron Upgrade"
+  21:
+    upgradeItem: "Healing Pool"
+  15:
+    upgradeItem: "It's a Trap!"
 

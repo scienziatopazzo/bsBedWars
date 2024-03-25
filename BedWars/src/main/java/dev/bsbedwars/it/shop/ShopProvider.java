@@ -2,6 +2,7 @@ package dev.bsbedwars.it.shop;
 
 import dev.bsbedwars.it.shop.content.ShopCategory;
 import dev.bsbedwars.it.shop.content.ShopItem;
+import dev.bsbedwars.it.shop.content.UpgradeItem;
 import dev.bsbedwars.it.shop.content.items.armor.DiamondArmor;
 import dev.bsbedwars.it.shop.content.items.bloks.*;
 import dev.bsbedwars.it.shop.content.items.bow.arrow.Arrow;
@@ -9,6 +10,7 @@ import dev.bsbedwars.it.shop.content.items.bow.type.Bow1;
 import dev.bsbedwars.it.shop.content.items.bow.type.Bow2;
 import dev.bsbedwars.it.shop.content.items.bow.type.Bow3;
 import dev.bsbedwars.it.shop.content.items.special.*;
+import dev.bsbedwars.it.shop.content.items.special.tower.Tower;
 import dev.bsbedwars.it.shop.content.items.sword.DiamondSword;
 import dev.bsbedwars.it.shop.content.items.armor.IronArmor;
 import dev.bsbedwars.it.shop.content.items.sword.IronSword;
@@ -17,6 +19,7 @@ import dev.bsbedwars.it.shop.content.items.sword.StoneSword;
 import dev.bsbedwars.it.shop.content.items.tools.Axe;
 import dev.bsbedwars.it.shop.content.items.tools.Pickaxe;
 import dev.bsbedwars.it.shop.content.items.tools.Shears;
+import dev.bsbedwars.it.shop.content.items.upgrade.*;
 import dev.bsbedwars.it.utils.GameFile;
 import dev.bsbedwars.it.utils.ItemFactory;
 import lombok.Getter;
@@ -34,13 +37,15 @@ public class ShopProvider {
     private final GameFile shopFile;
     private final FileConfiguration config;
     private final List<ShopCategory> categoryList;
-    private final List<ShopItem> items;
+    private final List<ShopItem> shopItems;
+    private final List<UpgradeItem> upgradeItems;
 
     public ShopProvider() {
         this.shopFile = new GameFile("shop.yml");
         this.config = shopFile.getFileConfiguration();
         this.categoryList = new ArrayList<>();
-        this.items = new ArrayList<>();
+        this.shopItems = new ArrayList<>();
+        this.upgradeItems = new ArrayList<>();
     }
 
     public void load() {
@@ -62,6 +67,7 @@ public class ShopProvider {
         ConfigurationSection items = config.getConfigurationSection(name);
 
         HashMap<Integer, ShopItem> shopItems = new HashMap<>();
+        HashMap<Integer, UpgradeItem> upgradeItems = new HashMap<>();
         HashMap<Integer, ItemStack> shopContent = new HashMap<>();
         HashMap<Integer, String> shopCategory = new HashMap<>();
 
@@ -107,6 +113,10 @@ public class ShopProvider {
                 shopItems.put(Integer.parseInt(slot), getShopItem(itemSelection.getString("shopItem")));
                 continue;
             }
+            if(itemSelection.contains("upgradeItem")) {
+                upgradeItems.put(Integer.parseInt(slot), getUpgradeItems(itemSelection.getString("upgradeItem")));
+                continue;
+            }
             shopContent.put(Integer.parseInt(slot), ItemFactory.load(itemSelection).build());
 
         }
@@ -115,6 +125,7 @@ public class ShopProvider {
                         name,
                         itemDisplay,
                         shopItems,
+                        upgradeItems,
                         shopContent,
                         shopCategory
                 )
@@ -148,6 +159,7 @@ public class ShopProvider {
         new Axe();
         new Shears();
         // Specials
+        new Tower();
         new Apple();
         new Egg();
         new Enderpearl();
@@ -156,6 +168,13 @@ public class ShopProvider {
         new Sponge();
         new Tnt();
         new Water();
+        // Upgrade
+        new UpgradeArmor();
+        new UpgradeForge();
+        new UpgradeHealingPool();
+        new UpgradeMine();
+        new UpgradeSword();
+        new UpgradeTrap();
     }
 
     public ShopCategory getCategory(String name) {
@@ -163,7 +182,11 @@ public class ShopProvider {
     }
 
     public ShopItem getShopItem(String name) {
-        return items.stream().filter(category -> category.getId().equalsIgnoreCase(name)).findFirst().orElse(null);
+        return shopItems.stream().filter(category -> category.getId().equalsIgnoreCase(name)).findFirst().orElse(null);
+    }
+
+    public UpgradeItem getUpgradeItems(String name) {
+        return upgradeItems.stream().filter(category -> category.getId().equalsIgnoreCase(name)).findFirst().orElse(null);
     }
 
 }

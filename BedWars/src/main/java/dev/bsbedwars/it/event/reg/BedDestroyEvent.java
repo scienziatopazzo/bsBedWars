@@ -4,6 +4,7 @@ package dev.bsbedwars.it.event.reg;
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
 import dev.bsbedwars.it.bedwars.Status;
+import dev.bsbedwars.it.shop.content.items.sword.Stick;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.ChatUtils;
 import lombok.Getter;
@@ -15,6 +16,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+
+import java.util.HashMap;
 
 @Getter
 public class BedDestroyEvent extends Event implements Listener {
@@ -73,7 +76,9 @@ public class BedDestroyEvent extends Event implements Listener {
             return;
 
         if(teamVictim == team) {
-            ChatUtils.sendMessage(player, arena.getMessageConfig(), "self_bed_destroy_msg", player.getName());
+            HashMap<String, String> placeholder = new HashMap<>();
+            placeholder.put("player", player.getName());
+            ChatUtils.sendMessage(player, arena.getMessageConfig(), "self_bed_destroy_msg", placeholder);
             e.setCancelled(true);
             return;
         }

@@ -18,12 +18,15 @@ import dev.bsbedwars.it.commands.leave.LeaveCommand;
 import dev.bsbedwars.it.commands.shop.ShopCommand;
 import dev.bsbedwars.it.commands.start.StartCommand;
 import dev.bsbedwars.it.commands.stop.StopCommand;
+import dev.bsbedwars.it.commands.upgrade.Upgrade;
 import dev.bsbedwars.it.event.imp.*;
+import dev.bsbedwars.it.event.imp.block.BedPlaceBlocks;
 import dev.bsbedwars.it.event.imp.block.BedWarsBlockBreak;
 import dev.bsbedwars.it.event.imp.block.BedWarsBlockPlace;
 import dev.bsbedwars.it.event.reg.*;
 import dev.bsbedwars.it.jedis.JedisChannel;
 import dev.bsbedwars.it.lobby.LobbyManager;
+import dev.bsbedwars.it.npc.NPCListener;
 import dev.bsbedwars.it.shop.ShopProvider;
 import dev.bsbedwars.it.team.component.sword.DropSwordEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
@@ -33,6 +36,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.logging.Level;
 
 @Getter
 public final class BedWars extends JavaPlugin {
@@ -51,6 +56,11 @@ public final class BedWars extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        if (getServer().getPluginManager().getPlugin("Citizens") == null
+                || !getServer().getPluginManager().getPlugin("Citizens").isEnabled()) {
+            getLogger().log(Level.SEVERE, "Citizens 2.0 not found or not enabled");
+        }
+
         long currentTimeMillis = System.currentTimeMillis();
 
         instance = this;
@@ -106,6 +116,7 @@ public final class BedWars extends JavaPlugin {
         new GameFile("component/teams.yml");
         new GameFile("component/generators.yml");
         new GameFile("component/lobby.yml");
+        new GameFile("component/villagers.yml");
     }
 
     public void loadCommand() {
@@ -122,6 +133,7 @@ public final class BedWars extends JavaPlugin {
         commandManager.registerCommand(new FlyCommand());
         commandManager.registerCommand(new LeaveCommand());
         commandManager.registerCommand(new ShopCommand());
+        commandManager.registerCommand(new Upgrade());
     }
 
     public void loadEvent() {
@@ -141,6 +153,8 @@ public final class BedWars extends JavaPlugin {
         pluginManager.registerEvents(new BedWarsBlockUpdate(), this);
         pluginManager.registerEvents(new BedWarsBlockPlace(), this);
         pluginManager.registerEvents(new BedWarsBlockBreak(), this);
+        pluginManager.registerEvents(new NPCListener(), this);
+        pluginManager.registerEvents(new BedPlaceBlocks(), this);
     }
 
 

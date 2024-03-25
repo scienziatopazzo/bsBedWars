@@ -8,6 +8,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
+import java.util.HashMap;
+
 public class BedDestroyEventImp implements Listener {
 
 
@@ -20,14 +22,20 @@ public class BedDestroyEventImp implements Listener {
         Team team = e.getTeam();
         Team teamVictim = e.getTeamVictim();
 
+        HashMap<String, String> placeholder = new HashMap<>();
+        placeholder.put("player", player.getName());
+        placeholder.put("player_team_color_code", team.getColor().getColorCode());
+        placeholder.put("player_team_color_name", team.getColor().toString());
+        placeholder.put("victim_team_color_code", teamVictim.getColor().getColorCode());
+        placeholder.put("victim_team_color_name", teamVictim.getColor().toString());
         // public msg
         for (Player playerInArena : arena.getPlayers())
-            ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "bed_destroyed", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
+            ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "bed_destroyed", placeholder);
 
         // Private msg
         for (Player teamPlayer : teamVictim.getPlayers()) {
-            ChatUtils.sendTitle(teamPlayer, arena.getMessageConfig(), "bed_destroy_title", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
-            ChatUtils.sendMessage(teamPlayer, arena.getMessageConfig(), "bed_destroy_msg", player.getName(), team.getColor().getColorCode(), team.getColor().toString(), teamVictim.getColor().getColorCode(), teamVictim.getColor().toString());
+            ChatUtils.sendTitle(teamPlayer, arena.getMessageConfig(), "bed_destroy_title", placeholder);
+            ChatUtils.sendMessage(teamPlayer, arena.getMessageConfig(), "bed_destroy_msg", placeholder);
         }
 
         teamVictim.setBedAlive(false);

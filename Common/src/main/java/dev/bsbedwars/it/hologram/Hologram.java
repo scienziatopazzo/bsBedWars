@@ -1,6 +1,7 @@
 package dev.bsbedwars.it.hologram;
 
 import dev.bsbedwars.it.utils.ChatUtils;
+import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -8,8 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class Hologram extends AbstractHologram {
-
 
     private final List<ArmorStand> hologram; // holograms of lines
 

@@ -12,9 +12,11 @@ import lombok.Setter;
 import org.bukkit.DyeColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.material.Bed;
 import org.bukkit.material.Dye;
 
 import java.util.List;
@@ -41,11 +43,12 @@ public class Team {
         FileConfiguration config = arena.getTeamsFile().getFileConfiguration();
         this.spawnLocation = new LocationUtil(null).deserialize(config.getString(color.toString() + ".spawn"));
         this.bedLocation = new LocationUtil(null).deserialize(config.getString(color.toString() + ".bed"));
-        bedLocation.getBlock().setType(Material.BED);
+        for(Block block : LocationUtil.placeBed(config.getString(color.toString() + ".bed")))
+            arena.getBlockPlaced().add(block);
         this.generatorLocation = new LocationUtil(null).deserialize(config.getString(color.toString() + ".generator"));
         this.generator = new Generator(generatorLocation, GeneratorType.BASE, 0); // base level is 0
         generator.start();
-        this.teamCuboid = Cuboid.createCube(spawnLocation, 20);
+        this.teamCuboid = Cuboid.createCube(spawnLocation, 35);
         this.teamUpgrade = new TeamUpgrade();
         setUPTeamUpgrade();
         this.bedAlive = true;
@@ -59,6 +62,10 @@ public class Team {
         teamUpgrade.addUpgrade("generator", 0);
         teamUpgrade.addUpgrade("protection", 0);
         teamUpgrade.addUpgrade("sharpness", 0);
+        teamUpgrade.addUpgrade("mine", 0);
+        teamUpgrade.addUpgrade("trap", false);
+        teamUpgrade.addUpgrade("pool", false);
+
     }
 
     public void updateGeneratorLvL(int level) {
