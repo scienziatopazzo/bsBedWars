@@ -1,5 +1,4 @@
-package dev.bsbedwars.it.arena.runnable;
-
+package dev.bsbedwars.it.arena.component;
 
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
@@ -8,18 +7,16 @@ import dev.bsbedwars.it.scoreboard.PlayerTAB;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class TABRunnable extends BukkitRunnable {
-    @Override
-    public void run() {
+public class ArenaTAB {
+
+    public static void update() {
         try {
             for (int i = 0; i < Bukkit.getOnlinePlayers().size(); i++) {
                 Player player = Bukkit.getOnlinePlayers().toArray(new Player[0])[i];
@@ -54,4 +51,5 @@ public class TABRunnable extends BukkitRunnable {
             e.printStackTrace();
         }
     }
+
 }

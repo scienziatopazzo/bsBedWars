@@ -2,10 +2,13 @@ package dev.bsbedwars.it.event.imp;
 
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
+import dev.bsbedwars.it.arena.component.ArenaScoreboard;
+import dev.bsbedwars.it.arena.component.ArenaTAB;
 import dev.bsbedwars.it.arena.runnable.DeathAnimation;
 import dev.bsbedwars.it.event.reg.BedWarsKillEvent;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.ChatUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -49,13 +52,19 @@ public class BedWarsKillEventImp implements Listener {
 
         ChatUtils.sendMessage(victim, arena.getMessageConfig(), "kill_msg", placeholder);
 
-        if (finalKill) {
-            teamVictim.getPlayers().remove(victim);
-            arena.getPlayers().remove(victim);
-            if(teamVictim.isEmpty())
-                arena.getTeams().remove(teamVictim);
-            arena.getSpectators().add(victim);
-        }
+        Bukkit.getScheduler().runTask(BedWars.getInstance(), () -> {
+            if (finalKill) {
+                teamVictim.death(victim);
+                arena.getPlayers().remove(victim);
+                arena.getSpectators().add(victim);
+                if(teamVictim.isEmpty())
+                    arena.getTeams().remove(teamVictim);
+                ArenaScoreboard.update();
+                ArenaTAB.update();
+            }
+        });
+
+
 
         e.getEvent().setKeepInventory(true);
         e.getEvent().setDroppedExp(0);

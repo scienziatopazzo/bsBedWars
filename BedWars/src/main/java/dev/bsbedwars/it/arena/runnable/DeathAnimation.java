@@ -33,7 +33,7 @@ public class DeathAnimation extends BukkitRunnable {
     @Override
     public void run() {
         if(!player.isOnline()){
-            team.getPlayers().remove(player);
+            team.death(player);
             arena.getPlayers().remove(player);
             arena.checkWin();
             cancel();

@@ -1,4 +1,4 @@
-package dev.bsbedwars.it.arena.runnable;
+package dev.bsbedwars.it.arena.component;
 
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
@@ -10,20 +10,15 @@ import dev.bsbedwars.it.team.component.TeamColor;
 import dev.bsbedwars.it.utils.ChatUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class ScoreboardRunnable extends BukkitRunnable {
+public class ArenaScoreboard {
 
-
-    @Override
-    public void run() {
-
+    public static void update() {
         Arena arena = BedWars.getInstance().getArena();
         try {
             for(Player player : Bukkit.getOnlinePlayers()) {
@@ -39,19 +34,18 @@ public class ScoreboardRunnable extends BukkitRunnable {
                     if(arena.getStatus() == Status.STARTING) {
                         starting(scoreboard, arena);
                     }
-
+                    continue;
                 }
                 // todo: spectator scoreboard
+                scoreboard.update("");
+                scoreboard.updateTitle("");
             }
         } catch (Exception e) {
-            return;
+            e.printStackTrace();
         }
-
-
     }
 
-
-    private void game(PlayerScoreboard scoreboard, Arena arena) {
+    private static void game(PlayerScoreboard scoreboard, Arena arena) {
         Player player = scoreboard.getPlayer();
         Type type = arena.getType();
 
@@ -61,7 +55,7 @@ public class ScoreboardRunnable extends BukkitRunnable {
 
             String colorCode = value.getColorCode();
             String teamName = ChatUtils.makeLowercaseExceptFirst(value.toString());
-            String status = arenaTeam != null ? ((arenaTeam.isBedAlive() ? "&a✔ " : "&c✖ ") + (arenaTeam.getPlayers().contains(player) ? "&8YOU" : (!arenaTeam.isBedAlive() ? "&8" + arenaTeam.getPlayers().size() : ""))) : "&c✖";
+            String status = arenaTeam != null ? ((arenaTeam.isBedAlive() ? "&a✔ " : "&c✖ ") + (arenaTeam.getAlivePlayers().contains(player) ? "&8YOU" : (!arenaTeam.isBedAlive() ? "&8" + arenaTeam.getAlivePlayers().size() : ""))) : "&c✖";
             String mode = String.valueOf(BedWars.getInstance().getArena().getType());
 
 
@@ -86,7 +80,7 @@ public class ScoreboardRunnable extends BukkitRunnable {
         scoreboard.updateTitle(arena.getConfig().getString("scoreboard.inGame.title"));
     }
 
-    private void lobby(PlayerScoreboard scoreboard, Arena arena) {
+    private static void lobby(PlayerScoreboard scoreboard, Arena arena) {
         Player player = scoreboard.getPlayer();
         HashMap<String, String> placeholders = new HashMap<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -106,7 +100,7 @@ public class ScoreboardRunnable extends BukkitRunnable {
         scoreboard.updateTitle(arena.getConfig().getString("scoreboard.starting.title"));
     }
 
-    private void starting(PlayerScoreboard scoreboard, Arena arena) {
+    private static void starting(PlayerScoreboard scoreboard, Arena arena) {
         Player player = scoreboard.getPlayer();
         HashMap<String, String> placeholders = new HashMap<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -126,4 +120,6 @@ public class ScoreboardRunnable extends BukkitRunnable {
         scoreboard.update(scoreboardLines);
         scoreboard.updateTitle(arena.getConfig().getString("scoreboard.starting.title"));
     }
+
+
 }

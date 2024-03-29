@@ -1,7 +1,8 @@
 package dev.bsbedwars.it.event.imp;
 
 import dev.bsbedwars.it.arena.Arena;
-import dev.bsbedwars.it.arena.runnable.ScoreboardRunnable;
+import dev.bsbedwars.it.arena.component.ArenaScoreboard;
+import dev.bsbedwars.it.arena.component.ArenaTAB;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.event.reg.BedWarsQuitEvent;
 import dev.bsbedwars.it.scoreboard.PlayerScoreboard;
@@ -46,7 +47,7 @@ public class BedWarsQuitEventImp implements Listener {
             return;
         }
 
-        team.getPlayers().remove(player);
+        team.death(player);
         arena.getPlayers().remove(player);
         if(team.isEmpty())
             arena.getTeams().remove(team);
@@ -61,6 +62,8 @@ public class BedWarsQuitEventImp implements Listener {
 
         arena.checkWin();
 
+        ArenaScoreboard.update();
+        ArenaTAB.update();
 
     }
 

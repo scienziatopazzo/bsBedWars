@@ -34,7 +34,7 @@ public class UpgradeRunnable extends BukkitRunnable {
 
             for (Player player : Bukkit.getOnlinePlayers()) {
                 for (Team team : arena.getTeams()) {
-                    if (team.getPlayers().contains(player)) continue;
+                    if (team.getAlivePlayers().contains(player)) continue;
                     if (!team.getTeamCuboid().isIn(player)) continue;
                     boolean trap = (boolean) team.getTeamUpgrade().getUpgrade("trap");
                     if (!trap) continue;

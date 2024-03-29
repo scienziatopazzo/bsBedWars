@@ -56,11 +56,6 @@ public final class BedWars extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        if (getServer().getPluginManager().getPlugin("Citizens") == null
-                || !getServer().getPluginManager().getPlugin("Citizens").isEnabled()) {
-            getLogger().log(Level.SEVERE, "Citizens 2.0 not found or not enabled");
-        }
-
         long currentTimeMillis = System.currentTimeMillis();
 
         instance = this;

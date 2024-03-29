@@ -1,9 +1,7 @@
 package dev.bsbedwars.it.arena;
 
 import dev.bsbedwars.it.BedWars;
-import dev.bsbedwars.it.arena.runnable.ScoreboardRunnable;
 import dev.bsbedwars.it.arena.runnable.StartingRunnable;
-import dev.bsbedwars.it.arena.runnable.TABRunnable;
 import dev.bsbedwars.it.arena.runnable.WinRunnable;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.bedwars.Type;
@@ -23,10 +21,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import java.util.*;
-import java.util.concurrent.CompletableFuture;
 
 @Getter
-public class Arena {
+public class Arena implements Cloneable{
 
     private final String uuid;
     private Type type;
@@ -66,8 +63,6 @@ public class Arena {
         this.status = config.getString("Status") == null ? Status.LOBBY : Status.valueOf(config.getString("Status").toUpperCase());
         this.players = new ArrayList<>();
         this.spectators = new ArrayList<>();
-        new ScoreboardRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 20L);
-        new TABRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 20L);
     }
 
 
@@ -113,7 +108,7 @@ public class Arena {
 
     public Team getTeam(Player player) {
         return teams.stream()
-                .filter(team -> team.getPlayers().contains(player))
+                .filter(team -> team.getAlivePlayers().contains(player))
                 .findFirst()
                 .orElse(null);
     }
@@ -148,5 +143,13 @@ public class Arena {
     }
 
 
-
+    @Override
+    public Arena clone() {
+        try {
+            Arena clone = (Arena) super.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

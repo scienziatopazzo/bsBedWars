@@ -19,7 +19,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.material.Bed;
 import org.bukkit.material.Dye;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 public class Team {
@@ -31,6 +33,7 @@ public class Team {
     private final Location bedLocation;
     private final Location generatorLocation;
     private final List<Player> players;
+    private final List<Player> playersDeath;
     private final TeamUpgrade teamUpgrade;
     private final Generator generator;
     @Setter
@@ -40,6 +43,7 @@ public class Team {
         this.arena = arena;
         this.color = color;
         this.players = players;
+        this.playersDeath = new ArrayList<>();
         FileConfiguration config = arena.getTeamsFile().getFileConfiguration();
         this.spawnLocation = new LocationUtil(null).deserialize(config.getString(color.toString() + ".spawn"));
         this.bedLocation = new LocationUtil(null).deserialize(config.getString(color.toString() + ".bed"));
@@ -54,8 +58,16 @@ public class Team {
         this.bedAlive = true;
     }
 
+    public List<Player> getAlivePlayers() {
+        return players.stream().filter(player -> !playersDeath.contains(player)).collect(Collectors.toList());
+    }
+
+    public void death(Player player) {
+        playersDeath.add(player);
+    }
+
     public boolean isEmpty() {
-        return players.isEmpty();
+        return getAlivePlayers().isEmpty();
     }
 
     private void setUPTeamUpgrade() {

@@ -2,6 +2,8 @@ package dev.bsbedwars.it.arena.runnable;
 
 import dev.bsbedwars.it.BedWars;
 import dev.bsbedwars.it.arena.Arena;
+import dev.bsbedwars.it.arena.component.ArenaScoreboard;
+import dev.bsbedwars.it.arena.component.ArenaTAB;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.generators.Generator;
 import dev.bsbedwars.it.generators.GeneratorType;
@@ -14,6 +16,7 @@ import dev.bsbedwars.it.team.component.sword.Sword;
 import dev.bsbedwars.it.utils.ChatUtils;
 import dev.bsbedwars.it.utils.LocationUtil;
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
@@ -41,11 +44,13 @@ public class StartingRunnable extends BukkitRunnable {
     @Override
     public void run() {
         arena.setStatus(Status.STARTING);
+        ArenaScoreboard.update();
+        ArenaTAB.update();
 
         if (second <= 0) {
             second = 0;
             arena.getBlockPlaced().clear();
-            NPCManager.create(arena.getVillagersFile().getFileConfiguration());
+            NPCManager.create(Bukkit.getOnlinePlayers().toArray(new Player[0])[0], arena.getVillagersFile().getFileConfiguration());
             // Create teams
             List<Team> teams = createTeams();
             arena.setTeams(teams);
@@ -53,7 +58,7 @@ public class StartingRunnable extends BukkitRunnable {
             // SetUP teams
             for (Team team : arena.getTeams()) {
                 // Teleport to spawn
-                for (Player player : team.getPlayers()) {
+                for (Player player : team.getAlivePlayers()) {
                     player.teleport(team.getSpawnLocation());
                     ChatUtils.sendMessage(player, arena.getMessageConfig(), "started_private_msg", new HashMap<>());
                     player.getInventory().clear();
@@ -87,8 +92,8 @@ public class StartingRunnable extends BukkitRunnable {
             arena.getGenerators().forEach(Generator::start);
 
             arena.setStatus(Status.GAME);
-            new UpdateTeamRunnable(arena).runTaskTimerAsynchronously(BedWars.getInstance(), 20, 20);
-            new UpgradeRunnable().runTaskTimerAsynchronously(BedWars.getInstance(), 0L, 1L);
+            new UpdateTeamRunnable(arena).runTaskTimer(BedWars.getInstance(), 20, 20);
+            new UpgradeRunnable().runTaskTimer(BedWars.getInstance(), 0L, 1L);
             cancel();
             return;
         }
@@ -119,7 +124,8 @@ public class StartingRunnable extends BukkitRunnable {
         }
 
         second--;
-
+        ArenaScoreboard.update();
+        ArenaTAB.update();
     }
 
     private List<Team> createTeams() {

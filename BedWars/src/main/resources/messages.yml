@@ -5,6 +5,7 @@
 # - Started
 # - Team
 # - Shop
+# - Upgrades
 #
 # ALL PLACEHOLDERS:
 # * GENERAL
@@ -55,12 +56,17 @@ kill_suicide: "{victim_team_color_code}{victim_name} &ehas been suicided!"
 finalKill_suicide: "&b&lFINAL KILL {victim_team_color_code}{victim_name} &ehas been suicided!"
 respawn_msg: "&cRespawn in {seconds}!"
 respawn_title: "&cRESPAWN IN {seconds}!"
-respawn: "&aYou are respawned!"
-win_private: "&2You have win the game!"
-win: "{team_color_code}{team_color_name} &2have win the game!"
-win_title: "{team_color_code}{team_color_name} &a&lWIN!"
+respawn: "&aRESPAWNED!"
+win_private: "&a&lWIN!"
+win: "&a&l{team_color_name} HAVE WIN!"
+win_title: "&a&l{team_color_name} HAVE WIN!"
 
 # SECTION: Shop
-shop_denied: "&cYou don't have enough money!"
+shop_denied: "&cYou don't have enough resources!"
 shop_success: "&cYou have bought x1 {id}, for {price_type_color}{price} {price_type_material}&c!"
 shop_error: "&cYou can't do this!"
+
+# SECTION: Upgrades
+upgrade_denied: "&cYou don't have enough resources!"
+upgrade_success: "&aYou have bought {id} for {price}&e!"
+upgrade_error: "&cYou can't do this!"

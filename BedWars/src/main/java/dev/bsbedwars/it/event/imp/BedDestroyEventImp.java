@@ -1,6 +1,8 @@
 package dev.bsbedwars.it.event.imp;
 
 import dev.bsbedwars.it.arena.Arena;
+import dev.bsbedwars.it.arena.component.ArenaScoreboard;
+import dev.bsbedwars.it.arena.component.ArenaTAB;
 import dev.bsbedwars.it.event.reg.BedDestroyEvent;
 import dev.bsbedwars.it.team.Team;
 import dev.bsbedwars.it.utils.ChatUtils;
@@ -33,13 +35,16 @@ public class BedDestroyEventImp implements Listener {
             ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "bed_destroyed", placeholder);
 
         // Private msg
-        for (Player teamPlayer : teamVictim.getPlayers()) {
+        for (Player teamPlayer : teamVictim.getAlivePlayers()) {
             ChatUtils.sendTitle(teamPlayer, arena.getMessageConfig(), "bed_destroy_title", placeholder);
             ChatUtils.sendMessage(teamPlayer, arena.getMessageConfig(), "bed_destroy_msg", placeholder);
         }
 
         teamVictim.setBedAlive(false);
 
+
+        ArenaScoreboard.update();
+        ArenaTAB.update();
     }
 
 

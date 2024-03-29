@@ -35,7 +35,7 @@ public class ShopGUI extends AbstractGUI {
                                 BedWars.getInstance().getShopProvider().getConfig().getStringList("itemLore.shopItem").stream()
                                         .map(s -> s.replace("%color%", item.getPriceType().getColor()))
                                         .map(s -> s.replace("%price%", String.valueOf(item.getPrice())))
-                                        .map(s -> s.replace("%type%", item.getPriceType().toString()))
+                                        .map(s -> s.replace("%type%", ChatUtils.makeLowercaseExceptFirst(item.getPriceType().toString())))
                                         .collect(Collectors.toList())).build(),
                         slot);
             }catch (NullPointerException e) {
@@ -169,7 +169,7 @@ public class ShopGUI extends AbstractGUI {
                 placeholder.put("price_type_color", "&b");
                 placeholder.put("price_type", String.valueOf(Material.DIAMOND));
                 placeholder.put("id", item.getId());
-                ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "shop_error", placeholder);
+                ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "upgrades_error", placeholder);
                 sound(player, Sound.VILLAGER_NO);
                 return item;
             }
@@ -186,7 +186,7 @@ public class ShopGUI extends AbstractGUI {
                     placeholder.put("price_type_color", "&b");
                     placeholder.put("price_type", String.valueOf(Material.DIAMOND));
                     placeholder.put("id", item.getId());
-                    ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "shop_denied", placeholder);
+                    ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "upgrades_denied", placeholder);
                     sound(player, Sound.VILLAGER_NO);
                     return item;
                 }
@@ -206,7 +206,7 @@ public class ShopGUI extends AbstractGUI {
                     placeholder.put("price_type_color", "&b");
                     placeholder.put("price_type", String.valueOf(Material.DIAMOND));
                     placeholder.put("id", item.getId());
-                    ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "shop_error", placeholder);
+                    ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "upgrades_error", placeholder);
                     sound(player, Sound.VILLAGER_NO);
                     return item;
                 }
@@ -217,7 +217,7 @@ public class ShopGUI extends AbstractGUI {
                 placeholder.put("price_type_material", String.valueOf(Material.DIAMOND));
                 placeholder.put("price_type", String.valueOf(Material.DIAMOND));
                 placeholder.put("id", item.getId());
-                ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "shop_success", placeholder);
+                ChatUtils.sendMessage(player, new GameFile("messages.yml").getFileConfiguration(), "upgrades_success", placeholder);
                 sound(player, Sound.ORB_PICKUP);
                 new ShopGUI(BedWars.getInstance().getShopProvider().getCategory(player.getOpenInventory().getTitle().split(" ")[1]), player).open(player);
                 return item;

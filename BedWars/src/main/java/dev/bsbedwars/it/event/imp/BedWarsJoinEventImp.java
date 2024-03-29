@@ -1,6 +1,8 @@
 package dev.bsbedwars.it.event.imp;
 
 import dev.bsbedwars.it.arena.Arena;
+import dev.bsbedwars.it.arena.component.ArenaScoreboard;
+import dev.bsbedwars.it.arena.component.ArenaTAB;
 import dev.bsbedwars.it.bedwars.Status;
 import dev.bsbedwars.it.event.reg.BedWarsJoinEvent;
 import dev.bsbedwars.it.utils.ChatUtils;
@@ -51,6 +53,9 @@ public class BedWarsJoinEventImp implements Listener {
                 placeholder.put("maxPlayers", String.valueOf(arena.getType().getMaxPlayers()));
                 ChatUtils.sendMessage(playerInArena, arena.getMessageConfig(), "joined_msg", placeholder);
             }
+
+        ArenaScoreboard.update();
+        ArenaTAB.update();
 
         if(!arena.getLobbyFile().getFileConfiguration().isSet("lobby"))
             return;

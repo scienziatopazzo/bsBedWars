@@ -12,7 +12,7 @@ public class Upgrade extends BaseCommand {
 
     @Default
     public void onUpgrade(Player player) {
-        new ShopGUI(BedWars.getInstance().getShopProvider().getCategory("upgrade"), player).open(player);
+        new ShopGUI(BedWars.getInstance().getShopProvider().getCategory("Upgrades"), player).open(player);
     }
 
 }
